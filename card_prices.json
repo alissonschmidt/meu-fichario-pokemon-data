@@ -1,285 +1,141 @@
 {
-  "version": 5,
+  "version": 6,
   "updatedAt": "2026-09-10",
-  "priceSource": "Mercado brasileiro",
+  "priceSource": "LigaPokemon",
   "sources": [
-    "MYP Cards",
     "LigaPokemon"
   ],
-  "catalogScope": "Catálogo incremental por espécie e forma",
-  "note": "Até 3 cartas por entrada. Primeira passagem cobre toda a Pokédex; depois apenas entradas sem cartas são priorizadas. Registros preenchidos são preservados.",
+  "catalogScope": "Catálogo por espécie e forma com referências exclusivamente da LigaPokemon",
+  "note": "Até 3 cartas por entrada. Quando não houver referência confirmada, o app oferece busca manual na LigaPokemon.",
   "pokemon": [
     {
       "speciesNumber": 1,
       "name": "Bulbasaur",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Bulbasaur",
-          "code": "001/034",
-          "collection": "TCLA",
-          "value": "R$ 300,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33067/bulbasaur"
-        },
-        {
-          "name": "Bulbasaur",
-          "code": "166/165",
-          "collection": "MEW",
-          "value": "R$ 180,50",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33067/bulbasaur"
-        },
-        {
-          "name": "Bulbasaur",
-          "code": "143/142",
-          "collection": "SCR",
-          "value": "R$ 145,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33067/bulbasaur"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Bulbasaur"
     },
     {
       "speciesNumber": 1,
       "name": "Shiny Bulbasaur",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:1"
+      "apiIdentifier": "shiny:1",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Bulbasaur"
     },
     {
       "speciesNumber": 2,
       "name": "Ivysaur",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Ivysaur",
-          "code": "002/034",
-          "collection": "TCLA",
-          "value": "R$ 300,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33044/ivysaur"
-        },
-        {
-          "name": "Ivysaur",
-          "code": "167/165",
-          "collection": "MEW",
-          "value": "R$ 250,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33044/ivysaur"
-        },
-        {
-          "name": "Ivysaur",
-          "code": "005/18",
-          "collection": "SI",
-          "value": "R$ 79,99",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33044/ivysaur"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Ivysaur"
     },
     {
       "speciesNumber": 2,
       "name": "Shiny Ivysaur",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:2"
+      "apiIdentifier": "shiny:2",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Ivysaur"
     },
     {
       "speciesNumber": 3,
       "name": "Venusaur",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Venusaur",
-          "code": "003/034",
-          "collection": "TCLA",
-          "value": "R$ 1.500,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
-        },
-        {
-          "name": "Venusaur",
-          "code": "030/165",
-          "collection": "EX",
-          "value": "R$ 1.500,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
-        },
-        {
-          "name": "Venusaur",
-          "code": "001",
-          "value": "R$ 700,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Venusaur"
     },
     {
       "speciesNumber": 3,
       "name": "Mega Venusaur",
       "formKind": "mega",
       "cards": [],
-      "apiIdentifier": "10033"
+      "apiIdentifier": "10033",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Venusaur"
     },
     {
       "speciesNumber": 3,
       "name": "Venusaur Gmax",
       "formKind": "variant",
-      "cards": [
-        {
-          "name": "Venusaur",
-          "code": "003/034",
-          "collection": "TCLA",
-          "value": "R$ 1.500,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
-        },
-        {
-          "name": "Venusaur",
-          "code": "030/165",
-          "collection": "EX",
-          "value": "R$ 1.500,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
-        },
-        {
-          "name": "Venusaur",
-          "code": "001",
-          "value": "R$ 700,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
-        }
-      ],
-      "apiIdentifier": "10195"
+      "cards": [],
+      "apiIdentifier": "10195",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Venusaur%20Gmax"
     },
     {
       "speciesNumber": 3,
       "name": "Shiny Mega Venusaur",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10033"
+      "apiIdentifier": "shiny:10033",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Venusaur"
     },
     {
       "speciesNumber": 3,
       "name": "Shiny Venusaur Gmax",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10195"
+      "apiIdentifier": "shiny:10195",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Venusaur%20Gmax"
     },
     {
       "speciesNumber": 3,
       "name": "Shiny Venusaur",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:3"
+      "apiIdentifier": "shiny:3",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Venusaur"
     },
     {
       "speciesNumber": 4,
       "name": "Charmander",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Charmander",
-          "code": "004",
-          "collection": "QSG",
-          "value": "R$ 500,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32948/charmander"
-        },
-        {
-          "name": "Charmander",
-          "code": "001/034",
-          "collection": "TCLA",
-          "value": "R$ 350,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32948/charmander"
-        },
-        {
-          "name": "Charmander",
-          "code": "052/ADV-P",
-          "collection": "ADV-P",
-          "value": "R$ 80,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/453292/charmander"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charmander"
     },
     {
       "speciesNumber": 4,
       "name": "Shiny Charmander",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:4"
+      "apiIdentifier": "shiny:4",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charmander"
     },
     {
       "speciesNumber": 5,
       "name": "Charmeleon",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Charmeleon",
-          "code": "002/034",
-          "collection": "TCLA",
-          "value": "R$ 300,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32924/charmeleon"
-        },
-        {
-          "name": "Charmeleon",
-          "code": "110/091",
-          "collection": "Charmeleon",
-          "value": "R$ 109,98",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32924/charmeleon"
-        },
-        {
-          "name": "Charmeleon",
-          "code": "211/190",
-          "collection": "sv4a",
-          "value": "R$ 70,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32924/charmeleon"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charmeleon"
     },
     {
       "speciesNumber": 5,
       "name": "Shiny Charmeleon",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:5"
+      "apiIdentifier": "shiny:5",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charmeleon"
     },
     {
       "speciesNumber": 6,
       "name": "Charizard",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Charizard",
-          "code": "003/034",
-          "collection": "TCLA",
-          "value": "R$ 5.000,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
-        },
-        {
-          "name": "Charizard",
-          "code": "NPF2_006",
-          "collection": "NPF2",
-          "value": "R$ 4.000,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
-        },
-        {
-          "name": "Charizard",
-          "code": "103/100",
-          "collection": "s9",
-          "value": "R$ 2.700,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charizard"
     },
     {
       "speciesNumber": 6,
@@ -304,614 +160,522 @@
           "source": "LigaPokemon",
           "url": "https://www.ligapokemon.com.br/?view=cards/card&card=Mega+Charizard+X+ex%20(013/080)&ed=m2&num=013"
         }
-      ]
+      ],
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Charizard%20X"
     },
     {
       "speciesNumber": 6,
       "name": "Mega Y Charizard",
       "formKind": "mega",
       "cards": [],
-      "apiIdentifier": "10035"
+      "apiIdentifier": "10035",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Y%20Charizard"
     },
     {
       "speciesNumber": 6,
       "name": "Charizard Gmax",
       "formKind": "variant",
-      "cards": [
-        {
-          "name": "Charizard",
-          "code": "003/034",
-          "collection": "TCLA",
-          "value": "R$ 5.000,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
-        },
-        {
-          "name": "Charizard",
-          "code": "NPF2_006",
-          "collection": "NPF2",
-          "value": "R$ 4.000,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
-        },
-        {
-          "name": "Charizard",
-          "code": "103/100",
-          "collection": "s9",
-          "value": "R$ 2.700,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
-        }
-      ],
-      "apiIdentifier": "10196"
+      "cards": [],
+      "apiIdentifier": "10196",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charizard%20Gmax"
     },
     {
       "speciesNumber": 6,
       "name": "Shiny Mega X Charizard",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10034"
+      "apiIdentifier": "shiny:10034",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20X%20Charizard"
     },
     {
       "speciesNumber": 6,
       "name": "Shiny Mega Y Charizard",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10035"
+      "apiIdentifier": "shiny:10035",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Y%20Charizard"
     },
     {
       "speciesNumber": 6,
       "name": "Shiny Charizard Gmax",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10196"
+      "apiIdentifier": "shiny:10196",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charizard%20Gmax"
     },
     {
       "speciesNumber": 6,
       "name": "Shiny Charizard",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:6"
+      "apiIdentifier": "shiny:6",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charizard"
     },
     {
       "speciesNumber": 7,
       "name": "Squirtle",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Squirtle",
-          "code": "001/034",
-          "collection": "TCLA",
-          "value": "R$ 300,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33093/squirtle"
-        },
-        {
-          "name": "Squirtle",
-          "code": "170/165",
-          "collection": "MEW",
-          "value": "R$ 300,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33093/squirtle"
-        },
-        {
-          "name": "Squirtle",
-          "code": "148/142",
-          "collection": "SCR",
-          "value": "R$ 240,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33093/squirtle"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Squirtle"
     },
     {
       "speciesNumber": 7,
       "name": "Shiny Squirtle",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:7"
+      "apiIdentifier": "shiny:7",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Squirtle"
     },
     {
       "speciesNumber": 8,
       "name": "Wartortle",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Wartortle",
-          "code": "002/034",
-          "collection": "TCLA",
-          "value": "R$ 300,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33063/wartortle"
-        },
-        {
-          "name": "Wartortle",
-          "code": "015/18",
-          "collection": "SI",
-          "value": "R$ 275,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33063/wartortle"
-        },
-        {
-          "name": "Wartortle",
-          "code": "171/165",
-          "collection": "MEW",
-          "value": "R$ 250,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33063/wartortle"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Wartortle"
     },
     {
       "speciesNumber": 8,
       "name": "Shiny Wartortle",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:8"
+      "apiIdentifier": "shiny:8",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Wartortle"
     },
     {
       "speciesNumber": 9,
       "name": "Blastoise",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Blastoise",
-          "code": "002/100",
-          "collection": "CG",
-          "value": "R$ 4.000,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
-        },
-        {
-          "name": "Blastoise",
-          "code": "001/017",
-          "collection": "POP3",
-          "value": "R$ 3.000,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
-        },
-        {
-          "name": "Blastoise",
-          "code": "003/034",
-          "collection": "TCLA",
-          "value": "R$ 1.500,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Blastoise"
     },
     {
       "speciesNumber": 9,
       "name": "Mega Blastoise",
       "formKind": "mega",
       "cards": [],
-      "apiIdentifier": "10036"
+      "apiIdentifier": "10036",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Blastoise"
     },
     {
       "speciesNumber": 9,
       "name": "Blastoise Gmax",
       "formKind": "variant",
-      "cards": [
-        {
-          "name": "Blastoise",
-          "code": "002/100",
-          "collection": "CG",
-          "value": "R$ 4.000,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
-        },
-        {
-          "name": "Blastoise",
-          "code": "001/017",
-          "collection": "POP3",
-          "value": "R$ 3.000,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
-        },
-        {
-          "name": "Blastoise",
-          "code": "003/034",
-          "collection": "TCLA",
-          "value": "R$ 1.500,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
-        }
-      ],
-      "apiIdentifier": "10197"
+      "cards": [],
+      "apiIdentifier": "10197",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Blastoise%20Gmax"
     },
     {
       "speciesNumber": 9,
       "name": "Shiny Mega Blastoise",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10036"
+      "apiIdentifier": "shiny:10036",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Blastoise"
     },
     {
       "speciesNumber": 9,
       "name": "Shiny Blastoise Gmax",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10197"
+      "apiIdentifier": "shiny:10197",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Blastoise%20Gmax"
     },
     {
       "speciesNumber": 9,
       "name": "Shiny Blastoise",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:9"
+      "apiIdentifier": "shiny:9",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Blastoise"
     },
     {
       "speciesNumber": 10,
       "name": "Caterpie",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Caterpie",
-          "code": "172/165",
-          "collection": "MEW",
-          "value": "R$ 160,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33068/caterpie"
-        },
-        {
-          "name": "Caterpie",
-          "code": "003/087",
-          "collection": "cp6",
-          "value": "R$ 150,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33068/caterpie"
-        },
-        {
-          "name": "Caterpie",
-          "code": "068/130",
-          "collection": "Cdigo",
-          "value": "R$ 6,70",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33068/caterpie"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Caterpie"
     },
     {
       "speciesNumber": 10,
       "name": "Shiny Caterpie",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10"
+      "apiIdentifier": "shiny:10",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Caterpie"
     },
     {
       "speciesNumber": 11,
       "name": "Metapod",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Metapod",
-          "code": "004/087",
-          "collection": "cp6",
-          "value": "R$ 150,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33081/metapod"
-        },
-        {
-          "name": "Metapod",
-          "code": "002/68",
-          "collection": "HIF",
-          "value": "R$ 10,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33081/metapod"
-        },
-        {
-          "name": "Metapod",
-          "code": "002/192",
-          "value": "R$ 6,90",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33081/metapod"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Metapod"
     },
     {
       "speciesNumber": 11,
       "name": "Shiny Metapod",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:11"
+      "apiIdentifier": "shiny:11",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Metapod"
     },
     {
       "speciesNumber": 12,
       "name": "Butterfree",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Butterfree",
-          "code": "009/18",
-          "collection": "SI",
-          "value": "R$ 45,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
-        },
-        {
-          "name": "Butterfree",
-          "code": "034/130",
-          "collection": "Cdigo",
-          "value": "R$ 24,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
-        },
-        {
-          "name": "Butterfree",
-          "code": "003/100",
-          "collection": "s8",
-          "value": "R$ 3,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Butterfree"
     },
     {
       "speciesNumber": 12,
       "name": "Butterfree Gmax",
       "formKind": "variant",
-      "cards": [
-        {
-          "name": "Butterfree",
-          "code": "009/18",
-          "collection": "SI",
-          "value": "R$ 45,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
-        },
-        {
-          "name": "Butterfree",
-          "code": "034/130",
-          "collection": "Cdigo",
-          "value": "R$ 24,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
-        },
-        {
-          "name": "Butterfree",
-          "code": "003/100",
-          "collection": "s8",
-          "value": "R$ 3,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
-        }
-      ],
-      "apiIdentifier": "10198"
+      "cards": [],
+      "apiIdentifier": "10198",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Butterfree%20Gmax"
     },
     {
       "speciesNumber": 12,
       "name": "Shiny Butterfree Gmax",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10198"
+      "apiIdentifier": "shiny:10198",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Butterfree%20Gmax"
     },
     {
       "speciesNumber": 12,
       "name": "Shiny Butterfree",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:12"
+      "apiIdentifier": "shiny:12",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Butterfree"
     },
     {
       "speciesNumber": 13,
       "name": "Weedle",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Weedle",
-          "code": "005/087",
-          "collection": "cp6",
-          "value": "R$ 20,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33100/weedle"
-        },
-        {
-          "name": "Weedle",
-          "code": "002/73",
-          "collection": "CPA",
-          "value": "R$ 9,90",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33100/weedle"
-        },
-        {
-          "name": "Weedle",
-          "code": "100/130",
-          "collection": "Cdigo",
-          "value": "R$ 1,50",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33100/weedle"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Weedle"
     },
     {
       "speciesNumber": 13,
       "name": "Shiny Weedle",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:13"
+      "apiIdentifier": "shiny:13",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Weedle"
     },
     {
       "speciesNumber": 14,
       "name": "Kakuna",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Kakuna",
-          "code": "004/095",
-          "collection": "sm9",
-          "value": "R$ 25,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33047/kakuna"
-        },
-        {
-          "name": "Kakuna",
-          "code": "006/087",
-          "collection": "cp6",
-          "value": "R$ 20,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33047/kakuna"
-        },
-        {
-          "name": "Kakuna",
-          "code": "004/181",
-          "collection": "TEU",
-          "value": "R$ 10,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33047/kakuna"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Kakuna"
     },
     {
       "speciesNumber": 14,
       "name": "Shiny Kakuna",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:14"
+      "apiIdentifier": "shiny:14",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Kakuna"
     },
     {
       "speciesNumber": 15,
       "name": "Beedrill",
       "formKind": "normal",
-      "cards": [
-        {
-          "name": "Beedrill",
-          "code": "005/150",
-          "collection": "SK",
-          "value": "R$ 129,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33021/beedrill"
-        },
-        {
-          "name": "Beedrill",
-          "code": "007/087",
-          "collection": "cp6",
-          "value": "R$ 85,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33021/beedrill"
-        },
-        {
-          "name": "Beedrill",
-          "code": "021/130",
-          "collection": "Cdigo",
-          "value": "R$ 15,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33021/beedrill"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Beedrill"
     },
     {
       "speciesNumber": 15,
       "name": "Mega Beedrill",
       "formKind": "mega",
       "cards": [],
-      "apiIdentifier": "10090"
+      "apiIdentifier": "10090",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Beedrill"
     },
     {
       "speciesNumber": 15,
       "name": "Shiny Mega Beedrill",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:10090"
+      "apiIdentifier": "shiny:10090",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Beedrill"
     },
     {
       "speciesNumber": 15,
       "name": "Shiny Beedrill",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:15"
+      "apiIdentifier": "shiny:15",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Beedrill"
     },
     {
       "speciesNumber": 16,
       "name": "Pidgey",
       "formKind": "normal",
       "manual": true,
-      "cards": [
-        {
-          "name": "Pidgey",
-          "code": "196/091",
-          "collection": "Escarlate e Violeta: Destinos de Paldea (PAF)",
-          "value": "R$ 40,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/223884/pidgey"
-        },
-        {
-          "name": "Pidgey",
-          "code": "118/108",
-          "collection": "SV3",
-          "value": "R$ 34,99",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/221178/pidgey"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgey"
     },
     {
       "speciesNumber": 16,
       "name": "Shiny Pidgey",
       "formKind": "shiny",
       "cards": [],
-      "apiIdentifier": "shiny:16"
+      "apiIdentifier": "shiny:16",
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Pidgey"
     },
     {
       "speciesNumber": 17,
       "name": "Pidgeotto",
       "formKind": "normal",
       "manual": true,
-      "cards": [
-        {
-          "name": "Pidgeotto",
-          "code": "197/091",
-          "collection": "Escarlate e Violeta: Destinos de Paldea (PAF)",
-          "value": "R$ 45,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/223885/pidgeotto"
-        },
-        {
-          "name": "Pidgeotto",
-          "code": "119/108",
-          "collection": "SV3",
-          "value": "R$ 34,99",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/221179/pidgeotto"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgeotto"
+    },
+    {
+      "speciesNumber": 17,
+      "name": "Shiny Pidgeotto",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Pidgeotto",
+      "apiIdentifier": "shiny:17"
     },
     {
       "speciesNumber": 18,
       "name": "Pidgeot",
       "formKind": "normal",
       "manual": true,
-      "cards": [
-        {
-          "name": "Pidgeot",
-          "code": "002/18",
-          "collection": "Southern Islands (SI)",
-          "value": "R$ 400,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/39809/pidgeot"
-        },
-        {
-          "name": "Pidgeot",
-          "code": "023/165",
-          "collection": "Expedition Base Set (EX)",
-          "value": "R$ 280,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/35347/pidgeot"
-        },
-        {
-          "name": "Pidgeot",
-          "code": "014/130",
-          "collection": "Base Set 2 (B2)",
-          "value": "R$ 250,00",
-          "source": "MYP Cards",
-          "url": "https://mypcards.com/pokemon/produto/33014/pidgeot"
-        }
-      ]
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgeot"
+    },
+    {
+      "speciesNumber": 18,
+      "name": "Mega Pidgeot",
+      "formKind": "mega",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Pidgeot",
+      "apiIdentifier": "10073"
+    },
+    {
+      "speciesNumber": 18,
+      "name": "Shiny Mega Pidgeot",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Pidgeot",
+      "apiIdentifier": "shiny:10073"
+    },
+    {
+      "speciesNumber": 18,
+      "name": "Shiny Pidgeot",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Pidgeot",
+      "apiIdentifier": "shiny:18"
+    },
+    {
+      "speciesNumber": 19,
+      "name": "Rattata",
+      "formKind": "normal",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Rattata"
+    },
+    {
+      "speciesNumber": 19,
+      "name": "Rattata de Alola",
+      "formKind": "alola",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Rattata%20de%20Alola",
+      "apiIdentifier": "10091"
+    },
+    {
+      "speciesNumber": 19,
+      "name": "Shiny Rattata de Alola",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Rattata%20de%20Alola",
+      "apiIdentifier": "shiny:10091"
+    },
+    {
+      "speciesNumber": 19,
+      "name": "Shiny Rattata",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Rattata",
+      "apiIdentifier": "shiny:19"
+    },
+    {
+      "speciesNumber": 20,
+      "name": "Raticate",
+      "formKind": "normal",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Raticate"
+    },
+    {
+      "speciesNumber": 20,
+      "name": "Raticate de Alola",
+      "formKind": "alola",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Raticate%20de%20Alola",
+      "apiIdentifier": "10092"
+    },
+    {
+      "speciesNumber": 20,
+      "name": "Raticate Totem de Alola",
+      "formKind": "alola",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Raticate%20Totem%20de%20Alola",
+      "apiIdentifier": "10093"
+    },
+    {
+      "speciesNumber": 20,
+      "name": "Shiny Raticate de Alola",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Raticate%20de%20Alola",
+      "apiIdentifier": "shiny:10092"
+    },
+    {
+      "speciesNumber": 20,
+      "name": "Shiny Raticate Totem de Alola",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Raticate%20Totem%20de%20Alola",
+      "apiIdentifier": "shiny:10093"
+    },
+    {
+      "speciesNumber": 20,
+      "name": "Shiny Raticate",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Raticate",
+      "apiIdentifier": "shiny:20"
+    },
+    {
+      "speciesNumber": 21,
+      "name": "Spearow",
+      "formKind": "normal",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Spearow"
+    },
+    {
+      "speciesNumber": 21,
+      "name": "Shiny Spearow",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Spearow",
+      "apiIdentifier": "shiny:21"
+    },
+    {
+      "speciesNumber": 22,
+      "name": "Fearow",
+      "formKind": "normal",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Fearow"
+    },
+    {
+      "speciesNumber": 22,
+      "name": "Shiny Fearow",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Fearow",
+      "apiIdentifier": "shiny:22"
+    },
+    {
+      "speciesNumber": 23,
+      "name": "Ekans",
+      "formKind": "normal",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Ekans"
+    },
+    {
+      "speciesNumber": 23,
+      "name": "Shiny Ekans",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Ekans",
+      "apiIdentifier": "shiny:23"
+    },
+    {
+      "speciesNumber": 24,
+      "name": "Arbok",
+      "formKind": "normal",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Arbok"
+    },
+    {
+      "speciesNumber": 24,
+      "name": "Shiny Arbok",
+      "formKind": "shiny",
+      "cards": [],
+      "lookupStatus": "manual_search_required",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Arbok",
+      "apiIdentifier": "shiny:24"
     }
   ],
   "stats": {
-    "entries": 52,
-    "entriesWithCards": 23,
-    "cards": 66,
-    "entriesWithoutCards": 29
+    "entries": 74,
+    "entriesWithCards": 1,
+    "entriesWithoutCards": 73,
+    "cards": 2
   }
 }

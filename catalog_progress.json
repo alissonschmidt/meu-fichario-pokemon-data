@@ -1,16 +1,18 @@
 {
   "version": 2,
-  "nextSpeciesNumber": 17,
+  "nextSpeciesNumber": 25,
   "cycle": 1,
-  "lastRunAt": "2026-09-10T21:41:10Z",
+  "lastRunAt": "2026-09-10T21:46:20Z",
   "lastBatchStart": 9,
   "lastBatchEnd": 16,
   "lastBatchSpecies": 8,
   "lastBatchEntriesWithNewCards": 9,
-  "lastBatchCardsAdded": 27,
-  "totalRuns": 3,
+  "lastBatchCardsAdded": 0,
+  "totalRuns": 4,
   "stoppedByRateLimit": false,
   "resetReason": "Revalidar Bulbasaur-Wartortle após correção do parser MYP 5.1",
   "parserVersion": "5.2-missing-only",
-  "mode": "first_pass"
+  "mode": "first_pass",
+  "missingEntriesRemaining": 73,
+  "sourcePolicy": "LigaPokemon-only"
 }
