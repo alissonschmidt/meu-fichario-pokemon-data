@@ -1,6 +1,5 @@
 name: Update catalog incrementally
 
-# O push neste workflow força a revalidação do primeiro lote após correções do parser.
 on:
   push:
     branches: ["main"]
@@ -21,7 +20,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -34,30 +33,25 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install dependencies
-        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.12.3
-
-      - name: Capture current catalog health
+      - name: Capture current LigaPokemon health
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path('card_prices.json')
-          root = json.loads(p.read_text(encoding='utf-8'))
+          root = json.loads(Path('card_prices.json').read_text(encoding='utf-8'))
           entries = root.get('pokemon', [])
-          filled = sum(1 for e in entries if e.get('cards'))
-          cards = sum(len(e.get('cards', [])) for e in entries)
-          Path('/tmp/catalog_before.json').write_text(json.dumps({'filled': filled, 'cards': cards}))
-          print(f'Antes: {filled} entradas preenchidas / {cards} cartas')
+          liga_cards = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() == 'ligapokemon']
+          liga_filled = sum(1 for e in entries if any(str(c.get('source','')).lower() == 'ligapokemon' for c in e.get('cards', [])))
+          Path('/tmp/catalog_before.json').write_text(json.dumps({'filled': liga_filled, 'cards': len(liga_cards)}))
+          print(f'Antes: {liga_filled} entradas LigaPokemon / {len(liga_cards)} cartas LigaPokemon')
           PY
 
       - name: Update small batch
         env:
           BATCH_SIZE: "8"
-          REQUEST_DELAY: "1.2"
         run: python tools/update_catalog_incremental.py
 
-      - name: Validate preservation and JSON
+      - name: Validate LigaPokemon-only catalog
         run: |
           python - <<'PY'
           import json
@@ -65,28 +59,29 @@ jobs:
           before = json.loads(Path('/tmp/catalog_before.json').read_text())
           root = json.loads(Path('card_prices.json').read_text(encoding='utf-8'))
           entries = root.get('pokemon', [])
+          if not entries:
+              raise SystemExit('ERRO: catálogo sem entradas')
+          invalid = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() != 'ligapokemon']
+          if invalid:
+              raise SystemExit(f'ERRO: ainda existem {len(invalid)} cartas de fonte diferente da LigaPokemon')
           filled = sum(1 for e in entries if e.get('cards'))
           cards = sum(len(e.get('cards', [])) for e in entries)
           if filled < before['filled']:
-              raise SystemExit(f'ERRO: entradas preenchidas caíram de {before["filled"]} para {filled}')
+              raise SystemExit(f'ERRO: entradas LigaPokemon caíram de {before["filled"]} para {filled}')
           if cards < before['cards']:
-              raise SystemExit(f'ERRO: total de cartas caiu de {before["cards"]} para {cards}')
+              raise SystemExit(f'ERRO: cartas LigaPokemon caíram de {before["cards"]} para {cards}')
           progress = json.loads(Path('catalog_progress.json').read_text(encoding='utf-8'))
-          next_species = int(progress.get('nextSpeciesNumber', 0))
-          if not 1 <= next_species <= 1025:
-              raise SystemExit('ERRO: progresso inválido')
-          print(f'Depois: {filled} entradas preenchidas / {cards} cartas; próxima espécie #{next_species:04d}')
+          print(f'Depois: {filled} entradas LigaPokemon / {cards} cartas; modo {progress.get("mode")}; pendentes {progress.get("missingEntriesRemaining")}')
           PY
 
       - name: Commit progress and catalog
         run: |
-          if git diff --quiet -- card_prices.json catalog_progress.json myp_product_index.json; then
+          if git diff --quiet -- card_prices.json catalog_progress.json; then
             echo "Nenhuma alteração neste lote."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add card_prices.json catalog_progress.json
-          if [ -f myp_product_index.json ]; then git add myp_product_index.json; fi
-          git commit -m "Atualiza lote incremental do catálogo"
+          git commit -m "Atualiza catálogo exclusivo LigaPokemon"
           git push
