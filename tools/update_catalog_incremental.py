@@ -24,12 +24,23 @@ MYP_BASE = "https://mypcards.com"
 POKEAPI_SPECIES = "https://pokeapi.co/api/v2/pokemon-species/{number}"
 PRICE_RE = re.compile(r"R\$\s*([0-9.]+(?:,[0-9]{1,2})?|[0-9]+(?:\.[0-9]{1,2})?)")
 CARD_RE = re.compile(r"^(.*?)\s*\(([^()]+)\)\s*$")
+PRODUCT_RE = re.compile(r"/pokemon/produto/\d+/([^/?#]+)", re.I)
+
+# Aliases controlados para diferenças conhecidas entre nomenclatura PokeAPI e MYP.
+FORM_ALIASES = {
+    "venusaur-mega": ["mega-venusaur", "venusaur-ex", "venusaur"],
+    "charizard-mega-x": ["mega-charizard-x", "charizard-ex", "charizard"],
+    "charizard-mega-y": ["mega-charizard-y", "charizard-ex", "charizard"],
+    "blastoise-mega": ["mega-blastoise", "blastoise-ex", "blastoise"],
+    "beedrill-mega": ["mega-beedrill", "beedrill-ex", "beedrill"],
+    "pidgeot-mega": ["mega-pidgeot", "pidgeot-ex", "pidgeot"],
+}
 
 
 def request_bytes(url: str) -> bytes:
     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "User-Agent": "PokeBinder-CatalogUpdater/5.0 (+incremental; respectful-rate-limit)",
+        "User-Agent": "PokeBinder-CatalogUpdater/5.1 (+incremental; respectful-rate-limit)",
     }
     last = None
     for attempt in range(1, MAX_RETRIES + 1):
@@ -93,13 +104,12 @@ def form_kind(name: str, is_default: bool) -> str:
 
 
 def pretty_name(raw: str) -> str:
-    parts = raw.replace("-mega-x", " mega x").replace("-mega-y", " mega y").replace("-mega", " mega").split("-")
-    if " mega " in f" {raw.replace('-', ' ')} ":
+    if "-mega" in raw:
         tokens = raw.split("-")
         base = tokens[0].capitalize()
         suffix = " ".join(token.upper() if token in {"x", "y"} else token.capitalize() for token in tokens[1:])
         return f"{suffix} {base}" if suffix.lower().startswith("mega") else f"{base} {suffix}"
-    return " ".join(part.capitalize() for part in parts if part)
+    return " ".join(part.capitalize() for part in raw.split("-") if part)
 
 
 def build_targets(species_number: int):
@@ -124,6 +134,7 @@ def build_targets(species_number: int):
             "formKind": kind,
             "apiIdentifier": api_identifier,
             "searchSlug": slugify(raw_name),
+            "speciesSlug": slugify(species_name),
         })
         targets.append({
             "speciesNumber": species_number,
@@ -132,23 +143,7 @@ def build_targets(species_number: int):
             "formKind": "shiny",
             "apiIdentifier": f"shiny:{poke_id}",
             "searchSlug": slugify(raw_name),
-        })
-    if not varieties:
-        targets.append({
-            "speciesNumber": species_number,
-            "name": species_name.capitalize(),
-            "rawName": species_name,
-            "formKind": "normal",
-            "apiIdentifier": None,
-            "searchSlug": slugify(species_name),
-        })
-        targets.append({
-            "speciesNumber": species_number,
-            "name": f"Shiny {species_name.capitalize()}",
-            "rawName": species_name,
-            "formKind": "shiny",
-            "apiIdentifier": f"shiny:{species_number}",
-            "searchSlug": slugify(species_name),
+            "speciesSlug": slugify(species_name),
         })
     return targets
 
@@ -196,16 +191,14 @@ def rebuild_product_index():
             pending.extend(loc for loc in locs if loc not in visited)
             continue
         for loc in locs:
-            if "/pokemon/produto/" not in loc:
+            match = PRODUCT_RE.search(loc)
+            if not match:
                 continue
-            slug = urllib.parse.urlparse(loc).path.rstrip("/").split("/")[-1].lower()
+            slug = match.group(1).lower()
             bucket = by_slug.setdefault(slug, [])
-            if len(bucket) < 12 and loc not in bucket:
+            if len(bucket) < 40 and loc not in bucket:
                 bucket.append(loc)
-    payload = {
-        "updatedAt": time.strftime("%Y-%m-%d"),
-        "slugs": by_slug,
-    }
+    payload = {"updatedAt": time.strftime("%Y-%m-%d"), "slugs": by_slug}
     INDEX.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
     print(f"Índice MYP: {len(by_slug)} slugs")
     return by_slug
@@ -224,7 +217,7 @@ def load_product_index():
 
 
 def brl_to_float(text: str):
-    match = PRICE_RE.search(text)
+    match = PRICE_RE.search(text or "")
     if not match:
         return None
     raw = match.group(1)
@@ -243,40 +236,87 @@ def format_brl(value: float) -> str:
     return f"R$ {value:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 
-def nearby_text(anchor):
-    node = anchor
-    for _ in range(7):
-        if node is None:
-            break
-        text = " ".join(node.stripped_strings)
-        if "R$" in text and len(text) < 1600:
-            return text
-        node = node.parent
-    return ""
-
-
 def infer_collection(text: str, code: str):
-    cleaned = " ".join(text.split())
+    cleaned = " ".join((text or "").split())
     after = cleaned.split(f"({code})", 1)[-1] if f"({code})" in cleaned else cleaned
-    tokens = after.split()
-    ignored = {"alta", "procura", "outros", "idiomas", "un", "ver", "ofertas", "adicionar", "pasta"}
-    for token in tokens[:12]:
+    ignored = {"alta", "procura", "outros", "idiomas", "un", "ver", "ofertas", "adicionar", "pasta", "a", "partir", "de"}
+    for token in after.split()[:16]:
         token_clean = re.sub(r"[^A-Za-z0-9-]", "", token)
         if not token_clean or token_clean.lower() in ignored or token_clean.startswith("R"):
             continue
-        if 2 <= len(token_clean) <= 16 and any(ch.isalpha() for ch in token_clean):
+        if 2 <= len(token_clean) <= 20 and any(ch.isalpha() for ch in token_clean):
             return token_clean
     return None
 
 
-def parse_seed_page(url: str, target_slug: str, shiny_only: bool):
+def find_container_with_price(node):
+    current = node
+    best = None
+    for _ in range(8):
+        current = current.parent if current is not None else None
+        if current is None:
+            break
+        text = " ".join(current.stripped_strings)
+        if "R$" in text:
+            best = current
+            if len(text) <= 1800:
+                return current
+    return best
+
+
+def extract_product_link(container, preferred_slugs):
+    if container is None:
+        return None
+    fallback = None
+    for anchor in container.find_all("a", href=True):
+        href = anchor.get("href", "")
+        match = PRODUCT_RE.search(href)
+        if not match:
+            continue
+        fallback = fallback or href
+        href_slug = match.group(1).lower()
+        if href_slug in preferred_slugs:
+            return href
+    return fallback
+
+
+def candidate_slugs(target):
+    primary = target["searchSlug"]
+    species = target.get("speciesSlug", primary)
+    result = [primary]
+    for alias in FORM_ALIASES.get(primary, []):
+        if alias not in result:
+            result.append(alias)
+    if species not in result:
+        result.append(species)
+    return result
+
+
+def name_matches_target(card_name: str, target, aliases):
+    card_slug = slugify(card_name)
+    species_slug = target.get("speciesSlug", target["searchSlug"])
+    kind = target["formKind"]
+    if kind == "normal":
+        return card_slug == species_slug or card_slug.startswith(species_slug + "-")
+    if kind == "mega":
+        return "mega" in card_slug and (species_slug in card_slug or any(a in card_slug for a in aliases if "mega" in a))
+    if kind in {"alola", "galar", "hisui", "paldea"}:
+        return kind in card_slug and species_slug in card_slug
+    if kind == "shiny":
+        lowered = card_name.lower()
+        return ("shiny" in lowered or "brilhante" in lowered) and species_slug in card_slug
+    return species_slug in card_slug
+
+
+def parse_seed_page(url: str, target, aliases):
     soup = BeautifulSoup(request_text(url), "html.parser")
     candidates = []
+    preferred = set(aliases)
 
     def add(name, code, price, href, collection=None):
-        if not name or not code or not price or price <= 0:
+        if not name or not code or not price or price <= 0 or not href:
             return
-        if shiny_only and "shiny" not in name.lower() and "brilhante" not in name.lower():
+        if not name_matches_target(name, target, aliases):
             return
         candidates.append({
             "name": name.strip(),
@@ -288,29 +328,36 @@ def parse_seed_page(url: str, target_slug: str, shiny_only: bool):
             "_price": price,
         })
 
+    # Estrutura atual do MYP: nome/código em heading e link/preço em elementos irmãos/parentes.
+    for heading in soup.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
+        label = " ".join(heading.stripped_strings).strip()
+        match = CARD_RE.match(label)
+        if not match:
+            continue
+        container = find_container_with_price(heading)
+        if container is None:
+            continue
+        text = " ".join(container.stripped_strings)
+        price = brl_to_float(text)
+        href = extract_product_link(container, preferred) or url
+        add(match.group(1), match.group(2), price, href, infer_collection(text, match.group(2)))
+
+    # Fallback para cards em que o título não usa heading.
     for anchor in soup.find_all("a", href=True):
         href = anchor.get("href", "")
-        if "/pokemon/produto/" not in href:
-            continue
-        href_slug = urllib.parse.urlparse(href).path.rstrip("/").split("/")[-1].lower()
-        if href_slug != target_slug:
+        match_url = PRODUCT_RE.search(href)
+        if not match_url:
             continue
         label = " ".join(anchor.stripped_strings).strip()
         match = CARD_RE.match(label)
         if not match:
             continue
-        text = nearby_text(anchor)
+        container = find_container_with_price(anchor)
+        if container is None:
+            continue
+        text = " ".join(container.stripped_strings)
         price = brl_to_float(text)
         add(match.group(1), match.group(2), price, href, infer_collection(text, match.group(2)))
-
-    page_title = soup.find(["h1", "h2"])
-    if page_title:
-        label = " ".join(page_title.stripped_strings).strip()
-        match = CARD_RE.match(label)
-        if match:
-            body = " ".join(soup.stripped_strings)
-            price = brl_to_float(body[:1400])
-            add(match.group(1), match.group(2), price, url, None)
 
     unique = {}
     for item in candidates:
@@ -323,16 +370,21 @@ def parse_seed_page(url: str, target_slug: str, shiny_only: bool):
 
 
 def find_cards(target, product_index):
-    slug = target["searchSlug"]
-    urls = product_index.get(slug, [])
+    aliases = candidate_slugs(target)
+    urls = []
+    for alias in aliases:
+        for url in product_index.get(alias, []):
+            if url not in urls:
+                urls.append(url)
     if not urls:
+        print(f"  Sem seed no índice para {target['name']} ({', '.join(aliases)})")
         return []
-    shiny_only = target["formKind"] == "shiny"
-    # Uma única página-semente normalmente lista as demais edições do mesmo Pokémon.
-    for url in urls[:2]:
+
+    for url in urls[:3]:
         try:
-            cards = parse_seed_page(url, slug, shiny_only)
+            cards = parse_seed_page(url, target, aliases)
             if cards:
+                print(f"  {target['name']}: {len(cards)} carta(s) encontrada(s)")
                 return cards
         except urllib.error.HTTPError as exc:
             if exc.code == 429:
@@ -341,6 +393,7 @@ def find_cards(target, product_index):
             print(f"Falha em {url}: {exc}")
         except Exception as exc:
             print(f"Falha em {url}: {exc}")
+    print(f"  Página analisada, mas sem correspondência confirmada para {target['name']}")
     return []
 
 
@@ -391,7 +444,6 @@ def main():
             entry_key = (species_number, target["apiIdentifier"])
             existing = by_key.get(entry_key)
             if existing and existing.get("cards"):
-                # Registros já preenchidos são preservados integralmente.
                 continue
 
             try:
@@ -412,7 +464,6 @@ def main():
                 clean_target["apiIdentifier"] = target["apiIdentifier"]
 
             if existing:
-                # Nunca substitui cards válidos por vazio.
                 if cards:
                     previous_count = len(existing.get("cards", []))
                     existing.update(clean_target)
@@ -433,7 +484,6 @@ def main():
         if stop_early:
             break
 
-    # Ordenação estável e estatísticas.
     entries.sort(key=lambda e: (int(e.get("speciesNumber", 9999)), e.get("apiIdentifier") or ""))
     catalog["version"] = 5
     catalog["updatedAt"] = time.strftime("%Y-%m-%d")
@@ -443,11 +493,7 @@ def main():
     catalog["note"] = "Até 3 cartas por entrada. Registros preenchidos são preservados; falhas e rate limits nunca apagam dados válidos."
     with_cards = sum(1 for entry in entries if entry.get("cards"))
     total_cards = sum(len(entry.get("cards", [])) for entry in entries)
-    catalog["stats"] = {
-        "entries": len(entries),
-        "entriesWithCards": with_cards,
-        "cards": total_cards,
-    }
+    catalog["stats"] = {"entries": len(entries), "entriesWithCards": with_cards, "cards": total_cards}
 
     last_species = numbers[-1]
     if stop_early:
@@ -469,6 +515,7 @@ def main():
         "lastBatchCardsAdded": cards_added,
         "totalRuns": int(progress.get("totalRuns", 0)) + 1,
         "stoppedByRateLimit": stop_early,
+        "parserVersion": "5.1-heading-container",
     })
 
     CATALOG.write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
