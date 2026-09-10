@@ -1,0 +1,115 @@
+{
+  "version": 5,
+  "updatedAt": "2026-09-10",
+  "priceSource": "Mercado brasileiro",
+  "sources": ["MYP Cards", "LigaPokemon"],
+  "catalogScope": "Catálogo remoto público do PokéBinder, atualizado progressivamente por espécie e forma",
+  "note": "Até 3 cartas de referência por entrada. O catálogo é incremental e não deve apagar dados válidos durante falhas de coleta.",
+  "pokemon": [
+    {
+      "speciesNumber": 6,
+      "name": "Mega Charizard X",
+      "formKind": "mega",
+      "apiIdentifier": "10034",
+      "manual": true,
+      "cards": [
+        {
+          "name": "Mega Charizard X ex",
+          "code": "125/094",
+          "collection": "PFL",
+          "value": "R$ 2.500,00",
+          "source": "LigaPokemon",
+          "url": "https://www.ligapokemon.com.br/?view=cards/card&card=Mega+Charizard+X+ex%20(125/094)&ed=PFL&num=125"
+        },
+        {
+          "name": "Mega Charizard X ex",
+          "code": "013/080",
+          "collection": "m2",
+          "value": "R$ 25,00",
+          "source": "LigaPokemon",
+          "url": "https://www.ligapokemon.com.br/?view=cards/card&card=Mega+Charizard+X+ex%20(013/080)&ed=m2&num=013"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 16,
+      "name": "Pidgey",
+      "formKind": "normal",
+      "manual": true,
+      "cards": [
+        {
+          "name": "Pidgey",
+          "code": "196/091",
+          "collection": "Escarlate e Violeta: Destinos de Paldea (PAF)",
+          "value": "R$ 40,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/223884/pidgey"
+        },
+        {
+          "name": "Pidgey",
+          "code": "118/108",
+          "collection": "SV3",
+          "value": "R$ 34,99",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/221178/pidgey"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 17,
+      "name": "Pidgeotto",
+      "formKind": "normal",
+      "manual": true,
+      "cards": [
+        {
+          "name": "Pidgeotto",
+          "code": "197/091",
+          "collection": "Escarlate e Violeta: Destinos de Paldea (PAF)",
+          "value": "R$ 45,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/223885/pidgeotto"
+        },
+        {
+          "name": "Pidgeotto",
+          "code": "119/108",
+          "collection": "SV3",
+          "value": "R$ 34,99",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/221179/pidgeotto"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 18,
+      "name": "Pidgeot",
+      "formKind": "normal",
+      "manual": true,
+      "cards": [
+        {
+          "name": "Pidgeot",
+          "code": "002/18",
+          "collection": "Southern Islands (SI)",
+          "value": "R$ 400,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/39809/pidgeot"
+        },
+        {
+          "name": "Pidgeot",
+          "code": "023/165",
+          "collection": "Expedition Base Set (EX)",
+          "value": "R$ 280,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/35347/pidgeot"
+        },
+        {
+          "name": "Pidgeot",
+          "code": "014/130",
+          "collection": "Base Set 2 (B2)",
+          "value": "R$ 250,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33014/pidgeot"
+        }
+      ]
+    }
+  ]
+}
