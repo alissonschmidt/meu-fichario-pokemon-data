@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "nextSpeciesNumber": 9,
+  "nextSpeciesNumber": 1,
   "cycle": 1,
   "lastRunAt": "2026-09-10T21:17:45Z",
   "lastBatchStart": 1,
@@ -9,5 +9,6 @@
   "lastBatchEntriesWithNewCards": 0,
   "lastBatchCardsAdded": 0,
   "totalRuns": 1,
-  "stoppedByRateLimit": false
+  "stoppedByRateLimit": false,
+  "resetReason": "Revalidar Bulbasaur-Wartortle após correção do parser MYP 5.1"
 }
