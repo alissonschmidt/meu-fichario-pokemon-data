@@ -1,14 +1,15 @@
 {
   "version": 1,
-  "nextSpeciesNumber": 1,
+  "nextSpeciesNumber": 9,
   "cycle": 1,
-  "lastRunAt": "2026-09-10T21:17:45Z",
+  "lastRunAt": "2026-09-10T21:30:59Z",
   "lastBatchStart": 1,
   "lastBatchEnd": 8,
   "lastBatchSpecies": 8,
-  "lastBatchEntriesWithNewCards": 0,
-  "lastBatchCardsAdded": 0,
-  "totalRuns": 1,
+  "lastBatchEntriesWithNewCards": 10,
+  "lastBatchCardsAdded": 30,
+  "totalRuns": 2,
   "stoppedByRateLimit": false,
-  "resetReason": "Revalidar Bulbasaur-Wartortle após correção do parser MYP 5.1"
+  "resetReason": "Revalidar Bulbasaur-Wartortle após correção do parser MYP 5.1",
+  "parserVersion": "5.1-heading-container"
 }

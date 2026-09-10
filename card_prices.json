@@ -13,7 +13,32 @@
       "speciesNumber": 1,
       "name": "Bulbasaur",
       "formKind": "normal",
-      "cards": []
+      "cards": [
+        {
+          "name": "Bulbasaur",
+          "code": "001/034",
+          "collection": "TCLA",
+          "value": "R$ 300,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33067/bulbasaur"
+        },
+        {
+          "name": "Bulbasaur",
+          "code": "166/165",
+          "collection": "MEW",
+          "value": "R$ 180,50",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33067/bulbasaur"
+        },
+        {
+          "name": "Bulbasaur",
+          "code": "143/142",
+          "collection": "SCR",
+          "value": "R$ 145,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33067/bulbasaur"
+        }
+      ]
     },
     {
       "speciesNumber": 1,
@@ -26,7 +51,32 @@
       "speciesNumber": 2,
       "name": "Ivysaur",
       "formKind": "normal",
-      "cards": []
+      "cards": [
+        {
+          "name": "Ivysaur",
+          "code": "002/034",
+          "collection": "TCLA",
+          "value": "R$ 300,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33044/ivysaur"
+        },
+        {
+          "name": "Ivysaur",
+          "code": "167/165",
+          "collection": "MEW",
+          "value": "R$ 250,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33044/ivysaur"
+        },
+        {
+          "name": "Ivysaur",
+          "code": "005/18",
+          "collection": "SI",
+          "value": "R$ 79,99",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33044/ivysaur"
+        }
+      ]
     },
     {
       "speciesNumber": 2,
@@ -39,7 +89,31 @@
       "speciesNumber": 3,
       "name": "Venusaur",
       "formKind": "normal",
-      "cards": []
+      "cards": [
+        {
+          "name": "Venusaur",
+          "code": "003/034",
+          "collection": "TCLA",
+          "value": "R$ 1.500,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
+        },
+        {
+          "name": "Venusaur",
+          "code": "030/165",
+          "collection": "EX",
+          "value": "R$ 1.500,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
+        },
+        {
+          "name": "Venusaur",
+          "code": "001",
+          "value": "R$ 700,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
+        }
+      ]
     },
     {
       "speciesNumber": 3,
@@ -52,7 +126,31 @@
       "speciesNumber": 3,
       "name": "Venusaur Gmax",
       "formKind": "variant",
-      "cards": [],
+      "cards": [
+        {
+          "name": "Venusaur",
+          "code": "003/034",
+          "collection": "TCLA",
+          "value": "R$ 1.500,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
+        },
+        {
+          "name": "Venusaur",
+          "code": "030/165",
+          "collection": "EX",
+          "value": "R$ 1.500,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
+        },
+        {
+          "name": "Venusaur",
+          "code": "001",
+          "value": "R$ 700,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33018/venusaur"
+        }
+      ],
       "apiIdentifier": "10195"
     },
     {
@@ -80,7 +178,32 @@
       "speciesNumber": 4,
       "name": "Charmander",
       "formKind": "normal",
-      "cards": []
+      "cards": [
+        {
+          "name": "Charmander",
+          "code": "004",
+          "collection": "QSG",
+          "value": "R$ 500,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32948/charmander"
+        },
+        {
+          "name": "Charmander",
+          "code": "001/034",
+          "collection": "TCLA",
+          "value": "R$ 350,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32948/charmander"
+        },
+        {
+          "name": "Charmander",
+          "code": "052/ADV-P",
+          "collection": "ADV-P",
+          "value": "R$ 80,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/453292/charmander"
+        }
+      ]
     },
     {
       "speciesNumber": 4,
@@ -93,7 +216,32 @@
       "speciesNumber": 5,
       "name": "Charmeleon",
       "formKind": "normal",
-      "cards": []
+      "cards": [
+        {
+          "name": "Charmeleon",
+          "code": "002/034",
+          "collection": "TCLA",
+          "value": "R$ 300,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32924/charmeleon"
+        },
+        {
+          "name": "Charmeleon",
+          "code": "110/091",
+          "collection": "Charmeleon",
+          "value": "R$ 109,98",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32924/charmeleon"
+        },
+        {
+          "name": "Charmeleon",
+          "code": "211/190",
+          "collection": "sv4a",
+          "value": "R$ 70,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32924/charmeleon"
+        }
+      ]
     },
     {
       "speciesNumber": 5,
@@ -106,7 +254,32 @@
       "speciesNumber": 6,
       "name": "Charizard",
       "formKind": "normal",
-      "cards": []
+      "cards": [
+        {
+          "name": "Charizard",
+          "code": "003/034",
+          "collection": "TCLA",
+          "value": "R$ 5.000,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
+        },
+        {
+          "name": "Charizard",
+          "code": "NPF2_006",
+          "collection": "NPF2",
+          "value": "R$ 4.000,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
+        },
+        {
+          "name": "Charizard",
+          "code": "103/100",
+          "collection": "s9",
+          "value": "R$ 2.700,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
+        }
+      ]
     },
     {
       "speciesNumber": 6,
@@ -144,7 +317,32 @@
       "speciesNumber": 6,
       "name": "Charizard Gmax",
       "formKind": "variant",
-      "cards": [],
+      "cards": [
+        {
+          "name": "Charizard",
+          "code": "003/034",
+          "collection": "TCLA",
+          "value": "R$ 5.000,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
+        },
+        {
+          "name": "Charizard",
+          "code": "NPF2_006",
+          "collection": "NPF2",
+          "value": "R$ 4.000,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
+        },
+        {
+          "name": "Charizard",
+          "code": "103/100",
+          "collection": "s9",
+          "value": "R$ 2.700,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/32890/charizard"
+        }
+      ],
       "apiIdentifier": "10196"
     },
     {
@@ -179,7 +377,32 @@
       "speciesNumber": 7,
       "name": "Squirtle",
       "formKind": "normal",
-      "cards": []
+      "cards": [
+        {
+          "name": "Squirtle",
+          "code": "001/034",
+          "collection": "TCLA",
+          "value": "R$ 300,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33093/squirtle"
+        },
+        {
+          "name": "Squirtle",
+          "code": "170/165",
+          "collection": "MEW",
+          "value": "R$ 300,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33093/squirtle"
+        },
+        {
+          "name": "Squirtle",
+          "code": "148/142",
+          "collection": "SCR",
+          "value": "R$ 240,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33093/squirtle"
+        }
+      ]
     },
     {
       "speciesNumber": 7,
@@ -192,7 +415,32 @@
       "speciesNumber": 8,
       "name": "Wartortle",
       "formKind": "normal",
-      "cards": []
+      "cards": [
+        {
+          "name": "Wartortle",
+          "code": "002/034",
+          "collection": "TCLA",
+          "value": "R$ 300,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33063/wartortle"
+        },
+        {
+          "name": "Wartortle",
+          "code": "015/18",
+          "collection": "SI",
+          "value": "R$ 275,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33063/wartortle"
+        },
+        {
+          "name": "Wartortle",
+          "code": "171/165",
+          "collection": "MEW",
+          "value": "R$ 250,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33063/wartortle"
+        }
+      ]
     },
     {
       "speciesNumber": 8,
@@ -284,7 +532,7 @@
   ],
   "stats": {
     "entries": 29,
-    "entriesWithCards": 4,
-    "cards": 9
+    "entriesWithCards": 14,
+    "cards": 39
   }
 }
