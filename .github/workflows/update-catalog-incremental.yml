@@ -1,5 +1,6 @@
 name: Update catalog incrementally
 
+# O push neste workflow força a revalidação do primeiro lote após correções do parser.
 on:
   push:
     branches: ["main"]
