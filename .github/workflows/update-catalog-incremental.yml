@@ -33,6 +33,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install parser dependency
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.12.3
+
       - name: Capture current LigaPokemon health
         run: |
           python - <<'PY'
@@ -46,9 +49,11 @@ jobs:
           print(f'Antes: {liga_filled} entradas LigaPokemon / {len(liga_cards)} cartas LigaPokemon')
           PY
 
-      - name: Update small batch
+      - name: Update one species slowly
         env:
-          BATCH_SIZE: "8"
+          BATCH_SIZE: "1"
+          REQUEST_DELAY: "15"
+          MAX_CARD_DETAIL_REQUESTS: "3"
         run: python tools/update_catalog_incremental.py
 
       - name: Validate LigaPokemon-only catalog
@@ -71,7 +76,10 @@ jobs:
           if cards < before['cards']:
               raise SystemExit(f'ERRO: cartas LigaPokemon caíram de {before["cards"]} para {cards}')
           progress = json.loads(Path('catalog_progress.json').read_text(encoding='utf-8'))
-          print(f'Depois: {filled} entradas LigaPokemon / {cards} cartas; modo {progress.get("mode")}; pendentes {progress.get("missingEntriesRemaining")}')
+          blocked = progress.get('stoppedByLigaBlock')
+          print(f'Depois: {filled} entradas LigaPokemon / {cards} cartas; modo {progress.get("mode")}; pendentes {progress.get("missingEntriesRemaining")}; bloqueado={blocked}')
+          if blocked:
+              print(f'Consulta encerrada de forma conservadora por HTTP {progress.get("blockedHttpStatus")} em {progress.get("blockedEntryName")}; cursor não avançou.')
           PY
 
       - name: Commit progress and catalog
@@ -83,5 +91,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add card_prices.json catalog_progress.json
-          git commit -m "Atualiza catálogo exclusivo LigaPokemon"
+          git commit -m "Atualiza catálogo LigaPokemon em modo conservador"
           git push
