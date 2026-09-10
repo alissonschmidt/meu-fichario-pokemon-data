@@ -1,12 +1,13 @@
 {
   "version": 1,
-  "nextSpeciesNumber": 1,
+  "nextSpeciesNumber": 9,
   "cycle": 1,
-  "lastRunAt": null,
-  "lastBatchStart": null,
-  "lastBatchEnd": null,
-  "lastBatchSpecies": 0,
+  "lastRunAt": "2026-09-10T21:17:45Z",
+  "lastBatchStart": 1,
+  "lastBatchEnd": 8,
+  "lastBatchSpecies": 8,
   "lastBatchEntriesWithNewCards": 0,
   "lastBatchCardsAdded": 0,
-  "totalRuns": 0
+  "totalRuns": 1,
+  "stoppedByRateLimit": false
 }

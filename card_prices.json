@@ -2,10 +2,112 @@
   "version": 5,
   "updatedAt": "2026-09-10",
   "priceSource": "Mercado brasileiro",
-  "sources": ["MYP Cards", "LigaPokemon"],
-  "catalogScope": "Catálogo remoto público do PokéBinder, atualizado progressivamente por espécie e forma",
-  "note": "Até 3 cartas de referência por entrada. O catálogo é incremental e não deve apagar dados válidos durante falhas de coleta.",
+  "sources": [
+    "MYP Cards",
+    "LigaPokemon"
+  ],
+  "catalogScope": "Catálogo incremental por espécie e forma",
+  "note": "Até 3 cartas por entrada. Registros preenchidos são preservados; falhas e rate limits nunca apagam dados válidos.",
   "pokemon": [
+    {
+      "speciesNumber": 1,
+      "name": "Bulbasaur",
+      "formKind": "normal",
+      "cards": []
+    },
+    {
+      "speciesNumber": 1,
+      "name": "Shiny Bulbasaur",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:1"
+    },
+    {
+      "speciesNumber": 2,
+      "name": "Ivysaur",
+      "formKind": "normal",
+      "cards": []
+    },
+    {
+      "speciesNumber": 2,
+      "name": "Shiny Ivysaur",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:2"
+    },
+    {
+      "speciesNumber": 3,
+      "name": "Venusaur",
+      "formKind": "normal",
+      "cards": []
+    },
+    {
+      "speciesNumber": 3,
+      "name": "Mega Venusaur",
+      "formKind": "mega",
+      "cards": [],
+      "apiIdentifier": "10033"
+    },
+    {
+      "speciesNumber": 3,
+      "name": "Venusaur Gmax",
+      "formKind": "variant",
+      "cards": [],
+      "apiIdentifier": "10195"
+    },
+    {
+      "speciesNumber": 3,
+      "name": "Shiny Mega Venusaur",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10033"
+    },
+    {
+      "speciesNumber": 3,
+      "name": "Shiny Venusaur Gmax",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10195"
+    },
+    {
+      "speciesNumber": 3,
+      "name": "Shiny Venusaur",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:3"
+    },
+    {
+      "speciesNumber": 4,
+      "name": "Charmander",
+      "formKind": "normal",
+      "cards": []
+    },
+    {
+      "speciesNumber": 4,
+      "name": "Shiny Charmander",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:4"
+    },
+    {
+      "speciesNumber": 5,
+      "name": "Charmeleon",
+      "formKind": "normal",
+      "cards": []
+    },
+    {
+      "speciesNumber": 5,
+      "name": "Shiny Charmeleon",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:5"
+    },
+    {
+      "speciesNumber": 6,
+      "name": "Charizard",
+      "formKind": "normal",
+      "cards": []
+    },
     {
       "speciesNumber": 6,
       "name": "Mega Charizard X",
@@ -30,6 +132,74 @@
           "url": "https://www.ligapokemon.com.br/?view=cards/card&card=Mega+Charizard+X+ex%20(013/080)&ed=m2&num=013"
         }
       ]
+    },
+    {
+      "speciesNumber": 6,
+      "name": "Mega Y Charizard",
+      "formKind": "mega",
+      "cards": [],
+      "apiIdentifier": "10035"
+    },
+    {
+      "speciesNumber": 6,
+      "name": "Charizard Gmax",
+      "formKind": "variant",
+      "cards": [],
+      "apiIdentifier": "10196"
+    },
+    {
+      "speciesNumber": 6,
+      "name": "Shiny Mega X Charizard",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10034"
+    },
+    {
+      "speciesNumber": 6,
+      "name": "Shiny Mega Y Charizard",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10035"
+    },
+    {
+      "speciesNumber": 6,
+      "name": "Shiny Charizard Gmax",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10196"
+    },
+    {
+      "speciesNumber": 6,
+      "name": "Shiny Charizard",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:6"
+    },
+    {
+      "speciesNumber": 7,
+      "name": "Squirtle",
+      "formKind": "normal",
+      "cards": []
+    },
+    {
+      "speciesNumber": 7,
+      "name": "Shiny Squirtle",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:7"
+    },
+    {
+      "speciesNumber": 8,
+      "name": "Wartortle",
+      "formKind": "normal",
+      "cards": []
+    },
+    {
+      "speciesNumber": 8,
+      "name": "Shiny Wartortle",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:8"
     },
     {
       "speciesNumber": 16,
@@ -111,5 +281,10 @@
         }
       ]
     }
-  ]
+  ],
+  "stats": {
+    "entries": 29,
+    "entriesWithCards": 4,
+    "cards": 9
+  }
 }
