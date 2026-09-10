@@ -1,6 +1,11 @@
 name: Update catalog incrementally
 
 on:
+  push:
+    branches: ["main"]
+    paths:
+      - "tools/update_catalog_incremental.py"
+      - ".github/workflows/update-catalog-incremental.yml"
   workflow_dispatch:
   schedule:
     - cron: "23 * * * *"
