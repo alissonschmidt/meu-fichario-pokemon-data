@@ -1,12 +1,12 @@
 {
-  "version": 6,
+  "version": 7,
   "updatedAt": "2026-09-10",
   "priceSource": "LigaPokemon",
   "sources": [
     "LigaPokemon"
   ],
-  "catalogScope": "Catálogo por espécie e forma com referências exclusivamente da LigaPokemon",
-  "note": "Até 3 cartas por entrada. Quando não houver referência confirmada, o app oferece busca manual na LigaPokemon.",
+  "catalogScope": "Catálogo por espécie e forma com coleta conservadora exclusivamente na LigaPokemon",
+  "note": "Até 3 cartas por entrada. Consultas são sequenciais e lentas. HTTP 403/429 encerra imediatamente a execução; nenhuma tentativa de contorno é feita.",
   "pokemon": [
     {
       "speciesNumber": 1,
@@ -670,12 +670,27 @@
       "lookupStatus": "manual_search_required",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Arbok",
       "apiIdentifier": "shiny:24"
+    },
+    {
+      "speciesNumber": 25,
+      "name": "Pikachu",
+      "formKind": "normal",
+      "cards": [],
+      "lookupStatus": "blocked",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pikachu",
+      "lastLookupAt": "2026-09-10T23:15:28Z",
+      "lastLookupHttpStatus": 403
     }
   ],
   "stats": {
-    "entries": 74,
+    "entries": 75,
     "entriesWithCards": 1,
-    "entriesWithoutCards": 73,
-    "cards": 2
+    "entriesWithoutCards": 74,
+    "cards": 2,
+    "lookupStatuses": {
+      "manual_search_required": 73,
+      "found": 1,
+      "blocked": 1
+    }
   }
 }
