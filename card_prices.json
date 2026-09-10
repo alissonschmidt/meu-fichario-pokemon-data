@@ -7,7 +7,7 @@
     "LigaPokemon"
   ],
   "catalogScope": "Catálogo incremental por espécie e forma",
-  "note": "Até 3 cartas por entrada. Registros preenchidos são preservados; falhas e rate limits nunca apagam dados válidos.",
+  "note": "Até 3 cartas por entrada. Primeira passagem cobre toda a Pokédex; depois apenas entradas sem cartas são priorizadas. Registros preenchidos são preservados.",
   "pokemon": [
     {
       "speciesNumber": 1,
@@ -450,6 +450,377 @@
       "apiIdentifier": "shiny:8"
     },
     {
+      "speciesNumber": 9,
+      "name": "Blastoise",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Blastoise",
+          "code": "002/100",
+          "collection": "CG",
+          "value": "R$ 4.000,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
+        },
+        {
+          "name": "Blastoise",
+          "code": "001/017",
+          "collection": "POP3",
+          "value": "R$ 3.000,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
+        },
+        {
+          "name": "Blastoise",
+          "code": "003/034",
+          "collection": "TCLA",
+          "value": "R$ 1.500,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 9,
+      "name": "Mega Blastoise",
+      "formKind": "mega",
+      "cards": [],
+      "apiIdentifier": "10036"
+    },
+    {
+      "speciesNumber": 9,
+      "name": "Blastoise Gmax",
+      "formKind": "variant",
+      "cards": [
+        {
+          "name": "Blastoise",
+          "code": "002/100",
+          "collection": "CG",
+          "value": "R$ 4.000,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
+        },
+        {
+          "name": "Blastoise",
+          "code": "001/017",
+          "collection": "POP3",
+          "value": "R$ 3.000,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
+        },
+        {
+          "name": "Blastoise",
+          "code": "003/034",
+          "collection": "TCLA",
+          "value": "R$ 1.500,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33002/blastoise"
+        }
+      ],
+      "apiIdentifier": "10197"
+    },
+    {
+      "speciesNumber": 9,
+      "name": "Shiny Mega Blastoise",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10036"
+    },
+    {
+      "speciesNumber": 9,
+      "name": "Shiny Blastoise Gmax",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10197"
+    },
+    {
+      "speciesNumber": 9,
+      "name": "Shiny Blastoise",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:9"
+    },
+    {
+      "speciesNumber": 10,
+      "name": "Caterpie",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Caterpie",
+          "code": "172/165",
+          "collection": "MEW",
+          "value": "R$ 160,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33068/caterpie"
+        },
+        {
+          "name": "Caterpie",
+          "code": "003/087",
+          "collection": "cp6",
+          "value": "R$ 150,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33068/caterpie"
+        },
+        {
+          "name": "Caterpie",
+          "code": "068/130",
+          "collection": "Cdigo",
+          "value": "R$ 6,70",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33068/caterpie"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 10,
+      "name": "Shiny Caterpie",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10"
+    },
+    {
+      "speciesNumber": 11,
+      "name": "Metapod",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Metapod",
+          "code": "004/087",
+          "collection": "cp6",
+          "value": "R$ 150,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33081/metapod"
+        },
+        {
+          "name": "Metapod",
+          "code": "002/68",
+          "collection": "HIF",
+          "value": "R$ 10,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33081/metapod"
+        },
+        {
+          "name": "Metapod",
+          "code": "002/192",
+          "value": "R$ 6,90",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33081/metapod"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 11,
+      "name": "Shiny Metapod",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:11"
+    },
+    {
+      "speciesNumber": 12,
+      "name": "Butterfree",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Butterfree",
+          "code": "009/18",
+          "collection": "SI",
+          "value": "R$ 45,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
+        },
+        {
+          "name": "Butterfree",
+          "code": "034/130",
+          "collection": "Cdigo",
+          "value": "R$ 24,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
+        },
+        {
+          "name": "Butterfree",
+          "code": "003/100",
+          "collection": "s8",
+          "value": "R$ 3,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 12,
+      "name": "Butterfree Gmax",
+      "formKind": "variant",
+      "cards": [
+        {
+          "name": "Butterfree",
+          "code": "009/18",
+          "collection": "SI",
+          "value": "R$ 45,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
+        },
+        {
+          "name": "Butterfree",
+          "code": "034/130",
+          "collection": "Cdigo",
+          "value": "R$ 24,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
+        },
+        {
+          "name": "Butterfree",
+          "code": "003/100",
+          "collection": "s8",
+          "value": "R$ 3,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33034/butterfree"
+        }
+      ],
+      "apiIdentifier": "10198"
+    },
+    {
+      "speciesNumber": 12,
+      "name": "Shiny Butterfree Gmax",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10198"
+    },
+    {
+      "speciesNumber": 12,
+      "name": "Shiny Butterfree",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:12"
+    },
+    {
+      "speciesNumber": 13,
+      "name": "Weedle",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Weedle",
+          "code": "005/087",
+          "collection": "cp6",
+          "value": "R$ 20,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33100/weedle"
+        },
+        {
+          "name": "Weedle",
+          "code": "002/73",
+          "collection": "CPA",
+          "value": "R$ 9,90",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33100/weedle"
+        },
+        {
+          "name": "Weedle",
+          "code": "100/130",
+          "collection": "Cdigo",
+          "value": "R$ 1,50",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33100/weedle"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 13,
+      "name": "Shiny Weedle",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:13"
+    },
+    {
+      "speciesNumber": 14,
+      "name": "Kakuna",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Kakuna",
+          "code": "004/095",
+          "collection": "sm9",
+          "value": "R$ 25,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33047/kakuna"
+        },
+        {
+          "name": "Kakuna",
+          "code": "006/087",
+          "collection": "cp6",
+          "value": "R$ 20,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33047/kakuna"
+        },
+        {
+          "name": "Kakuna",
+          "code": "004/181",
+          "collection": "TEU",
+          "value": "R$ 10,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33047/kakuna"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 14,
+      "name": "Shiny Kakuna",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:14"
+    },
+    {
+      "speciesNumber": 15,
+      "name": "Beedrill",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Beedrill",
+          "code": "005/150",
+          "collection": "SK",
+          "value": "R$ 129,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33021/beedrill"
+        },
+        {
+          "name": "Beedrill",
+          "code": "007/087",
+          "collection": "cp6",
+          "value": "R$ 85,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33021/beedrill"
+        },
+        {
+          "name": "Beedrill",
+          "code": "021/130",
+          "collection": "Cdigo",
+          "value": "R$ 15,00",
+          "source": "MYP Cards",
+          "url": "https://mypcards.com/pokemon/produto/33021/beedrill"
+        }
+      ]
+    },
+    {
+      "speciesNumber": 15,
+      "name": "Mega Beedrill",
+      "formKind": "mega",
+      "cards": [],
+      "apiIdentifier": "10090"
+    },
+    {
+      "speciesNumber": 15,
+      "name": "Shiny Mega Beedrill",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:10090"
+    },
+    {
+      "speciesNumber": 15,
+      "name": "Shiny Beedrill",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:15"
+    },
+    {
       "speciesNumber": 16,
       "name": "Pidgey",
       "formKind": "normal",
@@ -472,6 +843,13 @@
           "url": "https://mypcards.com/pokemon/produto/221178/pidgey"
         }
       ]
+    },
+    {
+      "speciesNumber": 16,
+      "name": "Shiny Pidgey",
+      "formKind": "shiny",
+      "cards": [],
+      "apiIdentifier": "shiny:16"
     },
     {
       "speciesNumber": 17,
@@ -531,8 +909,9 @@
     }
   ],
   "stats": {
-    "entries": 29,
-    "entriesWithCards": 14,
-    "cards": 39
+    "entries": 52,
+    "entriesWithCards": 23,
+    "cards": 66,
+    "entriesWithoutCards": 29
   }
 }
