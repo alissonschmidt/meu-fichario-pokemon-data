@@ -43,9 +43,35 @@ def ensure_entry(entries, by_key, number, target):
             c for c in entry.get("cards", [])
             if str(c.get("source", "")).lower() == "cardtrader"
         ]
-    # Remove resíduos de coletores antigos que podem confundir o diagnóstico.
     entry.pop("lastLookupHttpStatus", None)
     return entry
+
+
+def reset_rankings_from_start(entries, progress):
+    """Zera os cursores de TODAS as entradas para uma nova varredura exaustiva desde #0001.
+
+    As cartas já conhecidas são preservadas apenas como ranking provisório. Como o cursor volta
+    a zero, todos os blueprints serão revisitados e o `rank()` deduplicará pelo blueprintId.
+    """
+    if not progress.get("rankingResetRequested"):
+        return False
+
+    for entry in entries:
+        entry["scanCursor"] = 0
+        entry["scanComplete"] = False
+        entry["rankingComplete"] = False
+        entry["rankingStatus"] = "provisional"
+        entry["lookupStatus"] = "found" if entry.get("cards") else "pending"
+        entry.pop("lastLookupHttpStatus", None)
+
+    progress["nextSpeciesNumber"] = 1
+    progress["mode"] = "first_pass"
+    progress["rankingsDefinitive"] = 0
+    progress["rankingResetAppliedAt"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    progress["rankingResetApplied"] = True
+    progress.pop("rankingResetRequested", None)
+    print("RESET aplicado: todos os cursores zerados; ranking reiniciado em #0001")
+    return True
 
 
 def main():
@@ -63,16 +89,22 @@ def main():
     )
     entries = catalog.setdefault("pokemon", [])
 
-    # Migração segura do estado já coletado: preservamos o top 3 e o cursor, mas nunca
-    # tratamos um ranking como definitivo sem o cursor ter chegado ao fim do pool.
+    # Limpa fontes antigas e aplica reset explícito antes de calcular o ponto de retomada.
     for entry in entries:
         entry["cards"] = [
             c for c in entry.get("cards", [])
             if str(c.get("source", "")).lower() == "cardtrader"
         ]
-        entry["rankingComplete"] = bool(entry.get("scanComplete", False))
-        entry["rankingStatus"] = "definitive" if entry["rankingComplete"] else "provisional"
         entry.pop("lastLookupHttpStatus", None)
+
+    reset_applied = reset_rankings_from_start(entries, progress)
+
+    if not reset_applied:
+        # Migração segura do estado já coletado: preservamos o top 3 e o cursor, mas nunca
+        # tratamos um ranking como definitivo sem o cursor ter chegado ao fim do pool.
+        for entry in entries:
+            entry["rankingComplete"] = bool(entry.get("scanComplete", False))
+            entry["rankingStatus"] = "definitive" if entry["rankingComplete"] else "provisional"
 
     by_key = {base.entry_key(e): e for e in entries}
     start = max(1, min(base.MAX_POKEDEX, int(progress.get("nextSpeciesNumber", 1) or 1)))
@@ -86,8 +118,6 @@ def main():
     stopped_by_http_error = False
     current_species = start
 
-    # O lote pode tocar até BATCH_SIZE espécies, mas só avança para a próxima quando
-    # TODAS as formas da espécie atual tiverem ranking definitivo.
     upper = min(base.MAX_POKEDEX + 1, start + base.BATCH_SIZE)
     for number in range(start, upper):
         current_species = number
@@ -119,7 +149,6 @@ def main():
                     card = base.reference_for(bp)
                 except urllib.error.HTTPError as exc:
                     http_errors += 1
-                    # Não consumimos o blueprint com erro: ele será repetido na próxima execução.
                     print(f"Blueprint {bp['id']} HTTP {exc.code}; cursor preservado em {cursor}")
                     if exc.code == 429:
                         stopped_by_rate_limit = True
@@ -134,7 +163,6 @@ def main():
                     hard_stop = True
                     break
 
-                # Só avançamos o cursor depois de uma resposta válida da API.
                 cursor += 1
                 calls += 1
                 if card:
@@ -159,7 +187,6 @@ def main():
                 species_is_complete = False
                 break
 
-        # Garante que nenhuma forma já existente dessa espécie ficou incompleta.
         if species_is_complete:
             species_entries = [e for e in entries if int(e.get("speciesNumber", -1)) == number]
             species_is_complete = bool(species_entries) and all(bool(e.get("rankingComplete")) for e in species_entries)
@@ -168,7 +195,6 @@ def main():
             species_completed += 1
             progress["nextSpeciesNumber"] = number + 1 if number < base.MAX_POKEDEX else 1
         else:
-            # Não pulamos uma espécie incompleta. A próxima rodada retoma exatamente daqui.
             progress["nextSpeciesNumber"] = number
             break
 
@@ -187,11 +213,10 @@ def main():
     else:
         progress["mode"] = "first_pass"
 
-    # Limpa campos obsoletos de Liga/MYP e da heurística de parada antecipada.
     for obsolete in (
         "stoppedByLigaBlock", "blockedHttpStatus", "blockedEntryName", "resetReason",
         "missingEntriesRemaining", "requestDelaySeconds", "collectorMode", "lastBatchEntriesWithNewCards",
-        "lastBatchCardsAdded", "earlyStops",
+        "lastBatchCardsAdded", "earlyStops", "lastBatchEarlyStops", "maxCallsPerEntry", "earlyValidPerEntry",
     ):
         progress.pop(obsolete, None)
 
