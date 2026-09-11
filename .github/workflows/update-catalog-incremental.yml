@@ -6,10 +6,11 @@ on:
     paths:
       - "tools/update_catalog_incremental.py"
       - "tools/update_catalog_cardtrader_v2.py"
+      - "tools/update_catalog_cardtrader_v3.py"
       - ".github/workflows/update-catalog-incremental.yml"
   workflow_dispatch:
   schedule:
-    - cron: "23 * * * *"
+    - cron: "*/30 * * * *"
 
 permissions:
   contents: write
@@ -55,7 +56,7 @@ jobs:
               headers={
                   'Accept': 'application/json',
                   'Authorization': f"Bearer {os.environ['CARDTRADER_TOKEN']}",
-                  'User-Agent': 'PokeBinder-CatalogUpdater/8.2'
+                  'User-Agent': 'PokeBinder-CatalogUpdater/9.0'
               }
           )
           with urllib.request.urlopen(req, timeout=30) as response:
@@ -79,19 +80,20 @@ jobs:
           entries = root.get('pokemon', [])
           cards = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() == 'cardtrader']
           filled = sum(1 for e in entries if any(str(c.get('source','')).lower() == 'cardtrader' for c in e.get('cards', [])))
-          Path('/tmp/catalog_before.json').write_text(json.dumps({'filled': filled, 'cards': len(cards)}))
           print(f'Antes: {filled} entradas CardTrader / {len(cards)} cartas CardTrader')
           PY
 
       - name: Update catalog from official CardTrader API
         env:
           CARDTRADER_TOKEN: ${{ secrets.CARDTRADER_TOKEN }}
-          BATCH_SIZE: "4"
-          MAX_MARKETPLACE_CALLS: "40"
+          BATCH_SIZE: "10"
+          MAX_MARKETPLACE_CALLS: "200"
+          MAX_CALLS_PER_ENTRY: "30"
+          EARLY_VALID_PER_ENTRY: "12"
           MARKETPLACE_DELAY: "1.05"
           INDEX_REQUEST_DELAY: "0.08"
           INDEX_MAX_AGE_DAYS: "7"
-        run: python tools/update_catalog_cardtrader_v2.py
+        run: python tools/update_catalog_cardtrader_v3.py
 
       - name: Validate CardTrader-only catalog
         run: |
@@ -105,15 +107,15 @@ jobs:
           invalid = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() != 'cardtrader']
           if invalid:
               raise SystemExit(f'ERRO: existem {len(invalid)} cartas de fonte diferente da CardTrader')
-          filled = sum(1 for e in entries if e.get('cards'))
-          cards = sum(len(e.get('cards', [])) for e in entries)
           version = int(root.get('version', 0))
-          if version < 8:
+          if version < 9:
               raise SystemExit(f'ERRO: versão inesperada do catálogo: {version}')
           progress = json.loads(Path('catalog_progress.json').read_text(encoding='utf-8'))
-          if progress.get('parserVersion') != '8.2-array-wrapper':
-              raise SystemExit(f'ERRO: parser inesperado: {progress.get("parserVersion")}')
-          print(f'Depois: {filled} entradas CardTrader / {cards} cartas; modo {progress.get("mode")}; incompletas {progress.get("entriesIncomplete")}')
+          if progress.get('parserVersion') != '9.0-accelerated':
+              raise SystemExit(f'ERRO: coletor inesperado: {progress.get("parserVersion")}')
+          filled = sum(1 for e in entries if e.get('cards'))
+          cards = sum(len(e.get('cards', [])) for e in entries)
+          print(f'Depois: {filled} entradas CardTrader / {cards} cartas; modo {progress.get("mode")}; incompletas {progress.get("entriesIncomplete")}; calls {progress.get("lastBatchMarketplaceCalls")}; espécies {progress.get("lastBatchSpecies")}')
           PY
 
       - name: Commit progress and catalog
@@ -126,5 +128,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add card_prices.json catalog_progress.json
           if [ -f cardtrader_blueprint_index.json ]; then git add cardtrader_blueprint_index.json; fi
-          git commit -m "Atualiza catálogo via CardTrader"
+          git commit -m "Atualiza catálogo via CardTrader acelerado"
           git push
