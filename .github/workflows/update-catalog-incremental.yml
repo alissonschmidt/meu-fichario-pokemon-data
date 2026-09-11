@@ -120,4 +120,5 @@ jobs:
           git add card_prices.json catalog_progress.json
           if [ -f cardtrader_blueprint_index.json ]; then git add cardtrader_blueprint_index.json; fi
           git commit -m "Atualiza ranking exaustivo via CardTrader"
+          git pull --rebase origin main
           git push
