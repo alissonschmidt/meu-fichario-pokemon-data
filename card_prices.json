@@ -379,12 +379,12 @@
       ],
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
-      "scanCursor": 85,
-      "scanComplete": false,
-      "rankingComplete": false,
-      "rankingStatus": "provisional",
+      "scanCursor": 135,
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
       "candidateBlueprints": 135,
-      "lastLookupAt": "2026-09-11T16:54:16Z"
+      "lastLookupAt": "2026-09-11T17:49:02Z"
     },
     {
       "speciesNumber": 4,
@@ -392,24 +392,64 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:4",
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charmander",
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "scanCursor": 0,
-      "scanComplete": false,
-      "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "candidateBlueprints": 0
     },
     {
       "speciesNumber": 5,
       "name": "Charmeleon",
       "formKind": "normal",
-      "cards": [],
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charmeleon",
-      "scanCursor": 0,
-      "scanComplete": false,
-      "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "cards": [
+        {
+          "name": "Charmeleon",
+          "code": "csvl1",
+          "collection": "CSVL1: Adventure Special Pack",
+          "value": "R$ 7,743.59",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 344443,
+          "referenceCents": 774359,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Charmeleon",
+          "code": "lc",
+          "collection": "Legendary Collection",
+          "value": "R$ 1,954.76",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 121606,
+          "referenceCents": 195476,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Charmeleon",
+          "code": "dr",
+          "collection": "EX Dragon",
+          "value": "R$ 1,546.03",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 115533,
+          "referenceCents": 154603,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "scanCursor": 92,
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "candidateBlueprints": 92,
+      "lastLookupAt": "2026-09-11T17:51:06Z"
     },
     {
       "speciesNumber": 5,
@@ -417,24 +457,64 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:5",
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charmeleon",
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "scanCursor": 0,
-      "scanComplete": false,
-      "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "candidateBlueprints": 0
     },
     {
       "speciesNumber": 6,
       "name": "Charizard",
       "formKind": "normal",
-      "cards": [],
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charizard",
-      "scanCursor": 0,
+      "cards": [
+        {
+          "name": "Charizard",
+          "code": "skg",
+          "collection": "Skyridge",
+          "value": "R$ 24,768.52",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 127851,
+          "referenceCents": 2476852,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Charizard",
+          "code": "pk",
+          "collection": "EX Power Keepers",
+          "value": "R$ 7,666.20",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 116799,
+          "referenceCents": 766620,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Charizard",
+          "code": "ex",
+          "collection": "Expedition Base Set",
+          "value": "R$ 6,311.64",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 118558,
+          "referenceCents": 631164,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "scanCursor": 58,
       "scanComplete": false,
       "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "rankingStatus": "provisional",
+      "candidateBlueprints": 214,
+      "lastLookupAt": "2026-09-11T17:52:24Z"
     },
     {
       "speciesNumber": 6,
@@ -2226,10 +2306,10 @@
   ],
   "stats": {
     "entries": 114,
-    "entriesWithCards": 19,
-    "cards": 57,
-    "rankingsDefinitive": 10,
-    "rankingsProvisional": 104
+    "entriesWithCards": 21,
+    "cards": 63,
+    "rankingsDefinitive": 14,
+    "rankingsProvisional": 100
   },
   "currencyPolicy": "Moeda retornada pela CardTrader",
   "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas por blueprint",
