@@ -1,12 +1,12 @@
 {
-  "version": 8,
+  "version": 9,
   "updatedAt": "2026-09-11",
   "priceSource": "CardTrader",
   "sources": [
     "CardTrader"
   ],
-  "catalogScope": "Catálogo incremental por espécie e forma usando a API oficial CardTrader",
-  "note": "Até 3 cartas por entrada. Formas Shiny não recebem cartas normais automaticamente.",
+  "catalogScope": "Catálogo acelerado incremental por espécie e forma usando a API oficial CardTrader",
+  "note": "Até 3 cartas por entrada. Primeira passada prioriza cobertura rápida; cursores incompletos são retomados nas passadas seguintes. Formas Shiny não recebem cartas normais automaticamente.",
   "pokemon": [
     {
       "speciesNumber": 1,
@@ -851,13 +851,661 @@
       "scanCursor": 40,
       "scanComplete": false,
       "candidateBlueprints": 552
+    },
+    {
+      "speciesNumber": 26,
+      "name": "Raichu",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Raichu",
+          "code": "fo",
+          "collection": "Fossil",
+          "value": "R$ 1,741.89",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 119616,
+          "referenceCents": 174189,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Raichu",
+          "code": "bs",
+          "collection": "Base Set",
+          "value": "R$ 948.87",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 111161,
+          "referenceCents": 94887,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Raichu",
+          "code": "ex",
+          "collection": "Expedition Base Set",
+          "value": "R$ 778.82",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 118596,
+          "referenceCents": 77882,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 24,
+      "scanComplete": false,
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "candidateBlueprints": 161,
+      "lastLookupAt": "2026-09-11T12:12:45Z",
+      "lastEntryCalls": 24,
+      "lastEntryValidObserved": 12
+    },
+    {
+      "speciesNumber": 26,
+      "name": "Raichu de Alola",
+      "formKind": "alola",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "10100"
+    },
+    {
+      "speciesNumber": 26,
+      "name": "Mega X Raichu",
+      "formKind": "mega",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "10304"
+    },
+    {
+      "speciesNumber": 26,
+      "name": "Mega Y Raichu",
+      "formKind": "mega",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "10305"
+    },
+    {
+      "speciesNumber": 26,
+      "name": "Shiny Raichu de Alola",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:10100"
+    },
+    {
+      "speciesNumber": 26,
+      "name": "Shiny Mega X Raichu",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:10304"
+    },
+    {
+      "speciesNumber": 26,
+      "name": "Shiny Mega Y Raichu",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:10305"
+    },
+    {
+      "speciesNumber": 26,
+      "name": "Shiny Raichu",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:26"
+    },
+    {
+      "speciesNumber": 27,
+      "name": "Sandshrew",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Sandshrew",
+          "code": "skg",
+          "collection": "Skyridge",
+          "value": "R$ 138.40",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 127744,
+          "referenceCents": 13840,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Sandshrew",
+          "code": "trr",
+          "collection": "EX Team Rocket Returns",
+          "value": "R$ 65.78",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 117761,
+          "referenceCents": 6578,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Sandshrew",
+          "code": "ds",
+          "collection": "EX Delta Species",
+          "value": "R$ 55.90",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 115061,
+          "referenceCents": 5590,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 13,
+      "scanComplete": false,
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "candidateBlueprints": 44,
+      "lastLookupAt": "2026-09-11T12:13:06Z",
+      "lastEntryCalls": 13,
+      "lastEntryValidObserved": 12
+    },
+    {
+      "speciesNumber": 27,
+      "name": "Sandshrew de Alola",
+      "formKind": "alola",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "10101"
+    },
+    {
+      "speciesNumber": 27,
+      "name": "Shiny Sandshrew de Alola",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:10101"
+    },
+    {
+      "speciesNumber": 27,
+      "name": "Shiny Sandshrew",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:27"
+    },
+    {
+      "speciesNumber": 28,
+      "name": "Sandslash",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Sandslash",
+          "code": "m-151c",
+          "collection": "Collect 151 - Master ball Reverse Holo",
+          "value": "R$ 127.76",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 317464,
+          "referenceCents": 12776,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Sandslash",
+          "code": "skg",
+          "collection": "Skyridge",
+          "value": "R$ 89.00",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 127746,
+          "referenceCents": 8900,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Sandslash",
+          "code": "hgs",
+          "collection": "HeartGold & SoulSilver",
+          "value": "R$ 55.17",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 121036,
+          "referenceCents": 5517,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 12,
+      "scanComplete": false,
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "candidateBlueprints": 32,
+      "lastLookupAt": "2026-09-11T12:13:25Z",
+      "lastEntryCalls": 12,
+      "lastEntryValidObserved": 12
+    },
+    {
+      "speciesNumber": 28,
+      "name": "Sandslash de Alola",
+      "formKind": "alola",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "10102"
+    },
+    {
+      "speciesNumber": 28,
+      "name": "Shiny Sandslash de Alola",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:10102"
+    },
+    {
+      "speciesNumber": 28,
+      "name": "Shiny Sandslash",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:28"
+    },
+    {
+      "speciesNumber": 29,
+      "name": "Nidoran-f",
+      "formKind": "normal",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon"
+    },
+    {
+      "speciesNumber": 29,
+      "name": "Shiny Nidoran-f",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:29"
+    },
+    {
+      "speciesNumber": 30,
+      "name": "Nidorina",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Nidorina",
+          "code": "lc",
+          "collection": "Legendary Collection",
+          "value": "R$ 1,552.68",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 121642,
+          "referenceCents": 155268,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Nidorina",
+          "code": "mep",
+          "collection": "MEP Black Star Promos",
+          "value": "R$ 232.15",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 397592,
+          "referenceCents": 23215,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Nidorina",
+          "code": "skg",
+          "collection": "Skyridge",
+          "value": "R$ 101.88",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 127726,
+          "referenceCents": 10188,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 17,
+      "scanComplete": false,
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "candidateBlueprints": 31,
+      "lastLookupAt": "2026-09-11T12:13:52Z",
+      "lastEntryCalls": 17,
+      "lastEntryValidObserved": 12
+    },
+    {
+      "speciesNumber": 30,
+      "name": "Shiny Nidorina",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:30"
+    },
+    {
+      "speciesNumber": 31,
+      "name": "Nidoqueen",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Nidoqueen",
+          "code": "lc",
+          "collection": "Legendary Collection",
+          "value": "R$ 1,432.85",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 121596,
+          "referenceCents": 143285,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Nidoqueen",
+          "code": "ju",
+          "collection": "Jungle",
+          "value": "R$ 701.43",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 121473,
+          "referenceCents": 70143,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Nidoqueen",
+          "code": "151pkmr",
+          "collection": "Pokémon Card 151 - Master Ball Reverse Holo",
+          "value": "R$ 298.13",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 285393,
+          "referenceCents": 29813,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 17,
+      "scanComplete": false,
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "candidateBlueprints": 33,
+      "lastLookupAt": "2026-09-11T12:14:18Z",
+      "lastEntryCalls": 17,
+      "lastEntryValidObserved": 12
+    },
+    {
+      "speciesNumber": 31,
+      "name": "Shiny Nidoqueen",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:31"
+    },
+    {
+      "speciesNumber": 32,
+      "name": "Nidoran-m",
+      "formKind": "normal",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon"
+    },
+    {
+      "speciesNumber": 32,
+      "name": "Shiny Nidoran-m",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:32"
+    },
+    {
+      "speciesNumber": 33,
+      "name": "Nidorino",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Nidorino",
+          "code": "151pkmr",
+          "collection": "Pokémon Card 151 - Master Ball Reverse Holo",
+          "value": "R$ 7,743.59",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 285395,
+          "referenceCents": 774359,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Nidorino",
+          "code": "bs",
+          "collection": "Base Set",
+          "value": "R$ 117.70",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 111184,
+          "referenceCents": 11770,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Nidorino",
+          "code": "aq",
+          "collection": "Aquapolis",
+          "value": "R$ 84.16",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 110181,
+          "referenceCents": 8416,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 13,
+      "scanComplete": false,
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "candidateBlueprints": 29,
+      "lastLookupAt": "2026-09-11T12:14:39Z",
+      "lastEntryCalls": 13,
+      "lastEntryValidObserved": 12
+    },
+    {
+      "speciesNumber": 33,
+      "name": "Shiny Nidorino",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:33"
+    },
+    {
+      "speciesNumber": 34,
+      "name": "Nidoking",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Nidoking",
+          "code": "aq",
+          "collection": "Aquapolis",
+          "value": "R$ 9,250.50",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 110375,
+          "referenceCents": 925050,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Nidoking",
+          "code": "b2",
+          "collection": "Base Set 2",
+          "value": "R$ 1,127.02",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 111260,
+          "referenceCents": 112702,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Nidoking",
+          "code": "bs",
+          "collection": "Base Set",
+          "value": "R$ 933.13",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 111158,
+          "referenceCents": 93313,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 15,
+      "scanComplete": false,
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "candidateBlueprints": 40,
+      "lastLookupAt": "2026-09-11T12:15:02Z",
+      "lastEntryCalls": 15,
+      "lastEntryValidObserved": 12
+    },
+    {
+      "speciesNumber": 34,
+      "name": "Shiny Nidoking",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:34"
+    },
+    {
+      "speciesNumber": 35,
+      "name": "Clefairy",
+      "formKind": "normal",
+      "cards": [
+        {
+          "name": "Clefairy",
+          "code": "bs",
+          "collection": "Base Set",
+          "value": "R$ 2,326.08",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 111152,
+          "referenceCents": 232608,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Clefairy",
+          "code": "b2",
+          "collection": "Base Set 2",
+          "value": "R$ 274.79",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 111255,
+          "referenceCents": 27479,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Clefairy",
+          "code": "por",
+          "collection": "Perfect Order",
+          "value": "R$ 102.15",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 378939,
+          "referenceCents": 10215,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 16,
+      "scanComplete": false,
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "candidateBlueprints": 85,
+      "lastLookupAt": "2026-09-11T12:15:29Z",
+      "lastEntryCalls": 16,
+      "lastEntryValidObserved": 12
+    },
+    {
+      "speciesNumber": 35,
+      "name": "Shiny Clefairy",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:35"
     }
   ],
   "stats": {
-    "entries": 75,
-    "entriesWithCards": 1,
-    "cards": 3,
-    "entriesIncomplete": 75
+    "entries": 105,
+    "entriesWithCards": 9,
+    "cards": 27,
+    "entriesIncomplete": 83
   },
   "currencyPolicy": "Moeda retornada pela CardTrader",
   "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas por blueprint"
