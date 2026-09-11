@@ -36,7 +36,7 @@ def api_json(path: str, params=None):
         headers={
             "Accept": "application/json",
             "Authorization": f"Bearer {TOKEN}",
-            "User-Agent": "PokeBinder-CatalogUpdater/8.0",
+            "User-Agent": "PokeBinder-CatalogUpdater/8.1",
         },
     )
     with urllib.request.urlopen(req, timeout=120) as response:
@@ -44,17 +44,65 @@ def api_json(path: str, params=None):
 
 
 def public_json(url: str):
-    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "PokeBinder/8.0"})
+    req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "PokeBinder/8.1"})
     with urllib.request.urlopen(req, timeout=30) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
-def normalize(value: str) -> str:
-    value = unicodedata.normalize("NFKD", value or "")
+def normalize(value) -> str:
+    value = unicodedata.normalize("NFKD", str(value or ""))
     value = "".join(ch for ch in value if not unicodedata.combining(ch)).lower()
     for ch in "'’.:_-()/":
         value = value.replace(ch, " ")
     return " ".join(value.split())
+
+
+def api_records(payload, label="response"):
+    """Normaliza respostas CardTrader em lista de objetos.
+
+    A documentação descreve arrays para games/categories/expansions, mas a API pode
+    responder também com wrappers ou mapas indexados por id. Este parser aceita:
+    - [ {..}, {..} ]
+    - {"data"|"result"|"items"|"resources": [...]}
+    - {"1": {..}, "2": {..}}
+    - {"1": "Pokemon", "2": "Magic"}
+    """
+    if isinstance(payload, list):
+        result = []
+        for item in payload:
+            if isinstance(item, dict):
+                result.append(item)
+            elif isinstance(item, str):
+                result.append({"name": item, "display_name": item})
+        return result
+
+    if isinstance(payload, dict):
+        for key in ("data", "result", "items", "resources", "games", "categories", "expansions", "blueprints"):
+            nested = payload.get(key)
+            if isinstance(nested, (list, dict)):
+                return api_records(nested, f"{label}.{key}")
+
+        result = []
+        for key, value in payload.items():
+            if isinstance(value, dict):
+                item = dict(value)
+                if "id" not in item:
+                    try:
+                        item["id"] = int(key)
+                    except (TypeError, ValueError):
+                        pass
+                result.append(item)
+            elif isinstance(value, str):
+                item = {"name": value, "display_name": value}
+                try:
+                    item["id"] = int(key)
+                except (TypeError, ValueError):
+                    item["key"] = key
+                result.append(item)
+        if result:
+            return result
+
+    raise RuntimeError(f"Formato inesperado da CardTrader em {label}: {type(payload).__name__}")
 
 
 def display_name(raw: str) -> str:
@@ -108,10 +156,9 @@ def build_targets(species_number: int):
             "apiIdentifier": None if is_default else poke_id,
             "manualSearchUrl": MANUAL_BASE,
         })
-        shiny_name = f"Shiny {name}"
         targets.append({
             "speciesNumber": species_number,
-            "name": shiny_name,
+            "name": f"Shiny {name}",
             "rawName": raw,
             "speciesName": species_name,
             "formKind": "shiny",
@@ -143,49 +190,78 @@ def format_money(cents: int, currency: str) -> str:
 
 def cache_fresh(payload):
     ts = payload.get("generatedAtEpoch")
-    if not isinstance(ts, (int, float)):
-        return False
-    return time.time() - ts < INDEX_MAX_AGE_DAYS * 86400
+    return isinstance(ts, (int, float)) and time.time() - ts < INDEX_MAX_AGE_DAYS * 86400
+
+
+def find_pokemon_game(games):
+    for game in games:
+        names = {normalize(game.get("name")), normalize(game.get("display_name"))}
+        if "pokemon" in names or "pokémon" in names:
+            return game
+    return None
 
 
 def build_blueprint_index():
     print("Construindo índice compacto da CardTrader...")
-    games = api_json("/games")
-    pokemon = next((g for g in games if normalize(g.get("name")) == "pokemon" or normalize(g.get("display_name")) == "pokemon"), None)
-    if not pokemon:
-        raise RuntimeError("Jogo Pokémon não localizado na API CardTrader")
+    games_payload = api_json("/games")
+    games = api_records(games_payload, "/games")
+    print(f"  /games: {type(games_payload).__name__} -> {len(games)} registro(s)")
+    pokemon = find_pokemon_game(games)
+    if not pokemon or pokemon.get("id") is None:
+        available = [g.get("display_name") or g.get("name") for g in games[:20]]
+        raise RuntimeError(f"Jogo Pokémon não localizado na API CardTrader. Jogos recebidos: {available}")
     game_id = int(pokemon["id"])
+    print(f"  Pokémon localizado: game_id={game_id}")
 
-    categories = api_json("/categories", {"game_id": game_id})
+    categories_payload = api_json("/categories", {"game_id": game_id})
+    categories = api_records(categories_payload, "/categories")
     single_ids = {
         int(c["id"]) for c in categories
-        if "single" in normalize(c.get("name", ""))
+        if c.get("id") is not None and "single" in normalize(c.get("name") or c.get("display_name"))
     }
     if not single_ids:
-        raise RuntimeError("Categoria Singles de Pokémon não localizada")
+        names = [c.get("name") or c.get("display_name") for c in categories]
+        raise RuntimeError(f"Categoria Singles de Pokémon não localizada. Categorias: {names[:30]}")
+    print(f"  Categorias Singles: {sorted(single_ids)}")
 
-    expansions = [e for e in api_json("/expansions") if int(e.get("game_id", -1)) == game_id]
-    expansion_map = {int(e["id"]): e for e in expansions}
+    expansions_payload = api_json("/expansions")
+    expansions_all = api_records(expansions_payload, "/expansions")
+    expansions = [e for e in expansions_all if int(e.get("game_id", -1) or -1) == game_id]
+    if not expansions:
+        raise RuntimeError(f"Nenhuma expansão Pokémon localizada para game_id={game_id}")
+    expansion_map = {int(e["id"]): e for e in expansions if e.get("id") is not None}
+
     by_name = {}
     total = len(expansions)
     for idx, expansion in enumerate(expansions, 1):
         try:
-            blueprints = api_json("/blueprints/export", {"expansion_id": expansion["id"]})
+            payload = api_json("/blueprints/export", {"expansion_id": expansion["id"]})
+            blueprints = api_records(payload, "/blueprints/export")
         except urllib.error.HTTPError as exc:
             print(f"  Expansão {expansion.get('name')} ignorada: HTTP {exc.code}")
             continue
+        except RuntimeError as exc:
+            print(f"  Expansão {expansion.get('name')} ignorada: {exc}")
+            continue
         for bp in blueprints:
-            if int(bp.get("game_id", -1)) != game_id or int(bp.get("category_id", -1)) not in single_ids:
+            try:
+                bp_game = int(bp.get("game_id", game_id) or game_id)
+                bp_category = int(bp.get("category_id", -1) or -1)
+            except (TypeError, ValueError):
                 continue
-            name = bp.get("name", "").strip()
-            if not name:
+            if bp_game != game_id or bp_category not in single_ids:
                 continue
+            name = str(bp.get("name") or bp.get("name_en") or "").strip()
+            if not name or bp.get("id") is None:
+                continue
+            expansion_id = int(bp.get("expansion_id") or expansion["id"])
+            expansion_info = expansion_map.get(expansion_id, expansion)
             item = {
                 "id": int(bp["id"]),
                 "name": name,
-                "expansionId": int(bp.get("expansion_id") or expansion["id"]),
-                "expansion": expansion_map.get(int(bp.get("expansion_id") or expansion["id"]), expansion).get("name"),
-                "expansionCode": expansion_map.get(int(bp.get("expansion_id") or expansion["id"]), expansion).get("code"),
+                "expansionId": expansion_id,
+                "expansion": expansion_info.get("name"),
+                "expansionCode": expansion_info.get("code"),
             }
             by_name.setdefault(normalize(name), []).append(item)
         if idx % 50 == 0:
@@ -193,7 +269,7 @@ def build_blueprint_index():
         time.sleep(INDEX_REQUEST_DELAY)
 
     payload = {
-        "version": 1,
+        "version": 2,
         "generatedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "generatedAtEpoch": int(time.time()),
         "gameId": game_id,
@@ -207,7 +283,8 @@ def build_blueprint_index():
 
 def load_blueprint_index():
     payload = load_json(INDEX, {})
-    if payload and cache_fresh(payload) and payload.get("names"):
+    if payload and int(payload.get("version", 0) or 0) >= 2 and cache_fresh(payload) and payload.get("names"):
+        print("Usando índice CardTrader em cache")
         return payload
     return build_blueprint_index()
 
@@ -216,21 +293,12 @@ def candidate_names(target):
     species = normalize(target.get("speciesName", target["name"]))
     kind = target["formKind"]
     if kind == "shiny":
-        # Shiny é uma característica visual; a CardTrader normalmente mantém o nome impresso da carta.
-        # Não atribuímos automaticamente cartas normais a uma forma shiny.
         return []
     if kind == "mega":
         base = species
-        return [
-            normalize(target["name"]),
-            f"mega {base} ex",
-            f"m {base} ex",
-            f"mega {base}",
-            f"m {base}",
-        ]
+        return [normalize(target["name"]), f"mega {base} ex", f"m {base} ex", f"mega {base}", f"m {base}"]
     if kind in {"alola", "galar", "hisui", "paldea"}:
-        region = kind
-        return [normalize(target["name"]), f"{region} {species}", f"{species} {region}"]
+        return [normalize(target["name"]), f"{kind} {species}", f"{species} {kind}"]
     return [species]
 
 
@@ -243,14 +311,12 @@ def blueprint_candidates(target, index):
     for alias in aliases:
         for key, items in names.items():
             if key == alias or key.startswith(alias + " "):
-                # Evita misturar evoluções/nomes longos não relacionados; aceita sufixos de TCG como ex/GX/V/VMAX/VSTAR.
                 rest = key[len(alias):].strip()
-                allowed = ("", "ex", "gx", "v", "vmax", "vstar", "lv x", "star", "break")
-                if rest and not any(rest == a or rest.startswith(a + " ") for a in allowed if a):
+                allowed = ("ex", "gx", "v", "vmax", "vstar", "lv x", "star", "break")
+                if rest and not any(rest == a or rest.startswith(a + " ") for a in allowed):
                     continue
                 for item in items:
                     found[item["id"]] = item
-    # IDs menores tendem a ser impressões mais antigas; espalha a busca entre antigas e novas.
     ordered = sorted(found.values(), key=lambda x: (x.get("expansionId", 10**9), x["id"]))
     if len(ordered) > 6:
         mixed = []
@@ -264,56 +330,95 @@ def blueprint_candidates(target, index):
 
 
 def product_condition(product):
-    props = product.get("properties_hash") or {}
+    props = product.get("properties_hash") or product.get("properties") or {}
     return str(props.get("condition", ""))
+
+
+def product_price(product):
+    cents = product.get("price_cents")
+    currency = product.get("price_currency")
+    if cents is None:
+        price = product.get("price") or {}
+        cents = price.get("cents")
+        currency = currency or price.get("currency") or price.get("currency_iso")
+    try:
+        cents = int(cents)
+    except (TypeError, ValueError):
+        return None
+    currency = str(currency or "").upper()
+    if cents <= 0 or not currency:
+        return None
+    return cents, currency
+
+
+def marketplace_products(payload, blueprint_id):
+    if isinstance(payload, dict):
+        direct = payload.get(str(blueprint_id))
+        if isinstance(direct, list):
+            return [p for p in direct if isinstance(p, dict)]
+        if isinstance(direct, dict):
+            return [direct]
+        for key in ("data", "result", "items", "products"):
+            nested = payload.get(key)
+            if isinstance(nested, list):
+                return [p for p in nested if isinstance(p, dict)]
+            if isinstance(nested, dict):
+                return marketplace_products(nested, blueprint_id)
+    if isinstance(payload, list):
+        return [p for p in payload if isinstance(p, dict)]
+    return []
 
 
 def blueprint_reference(bp):
     data = api_json("/marketplace/products", {"blueprint_id": bp["id"]})
-    products = data.get(str(bp["id"]), []) if isinstance(data, dict) else []
+    products = marketplace_products(data, bp["id"])
     valid = []
-    for p in products:
-        if p.get("graded"):
+    for product in products:
+        if bool(product.get("graded")):
             continue
-        if int(p.get("quantity", 0) or 0) <= 0:
+        quantity = product.get("quantity", product.get("bundled_quantity", 0))
+        try:
+            if int(quantity or 0) <= 0:
+                continue
+        except (TypeError, ValueError):
             continue
-        if product_condition(p).lower() != "near mint":
+        if product_condition(product).lower() != "near mint":
             continue
-        price = p.get("price") or {}
-        cents = price.get("cents")
-        currency = str(price.get("currency", "")).upper()
-        if not isinstance(cents, int) or cents <= 0 or not currency:
-            continue
-        valid.append((cents, currency))
+        parsed = product_price(product)
+        if parsed:
+            valid.append(parsed)
     if not valid:
         return None
+
     currencies = {}
     for cents, currency in valid:
         currencies.setdefault(currency, []).append(cents)
     currency, prices = max(currencies.items(), key=lambda kv: len(kv[1]))
     prices = sorted(prices)[:15]
-    ref = int(round(statistics.median(prices)))
+    reference = int(round(statistics.median(prices)))
     return {
         "name": bp["name"],
         "code": bp.get("expansionCode") or str(bp["id"]),
         "collection": bp.get("expansion"),
-        "value": format_money(ref, currency),
+        "value": format_money(reference, currency),
         "source": SOURCE,
         "url": MANUAL_BASE,
         "blueprintId": bp["id"],
-        "referenceCents": ref,
+        "referenceCents": reference,
         "currency": currency,
         "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas",
     }
 
 
 def rank_cards(cards):
-    # Compara somente dentro da mesma moeda. A moeda predominante da conta normalmente é única.
     by_id = {}
     for card in cards:
         if str(card.get("source", "")).lower() != SOURCE.lower():
             continue
-        key = int(card.get("blueprintId", 0) or 0)
+        try:
+            key = int(card.get("blueprintId", 0) or 0)
+        except (TypeError, ValueError):
+            key = 0
         if key:
             by_id[key] = card
     grouped = {}
@@ -321,7 +426,7 @@ def rank_cards(cards):
         grouped.setdefault(card.get("currency", ""), []).append(card)
     if not grouped:
         return []
-    currency, items = max(grouped.items(), key=lambda kv: len(kv[1]))
+    _, items = max(grouped.items(), key=lambda kv: len(kv[1]))
     items.sort(key=lambda c: int(c.get("referenceCents", 0) or 0), reverse=True)
     return items[:3]
 
@@ -353,16 +458,24 @@ def main():
     if not TOKEN:
         raise SystemExit("ERRO: configure o secret CARDTRADER_TOKEN no repositório antes de executar o workflow.")
 
-    # Valida autenticação antes de alterar qualquer arquivo.
-    api_json("/info")
+    info = api_json("/info")
+    print(f"Autenticação CardTrader OK; /info retornou {type(info).__name__}")
     index = load_blueprint_index()
 
     catalog = load_json(CATALOG, {"version": 8, "pokemon": []})
     progress = load_json(PROGRESS, {"version": 4, "nextSpeciesNumber": 1, "mode": "first_pass", "totalRuns": 0})
     entries = catalog.setdefault("pokemon", [])
+
+    # Migração: remove referências de fontes antigas sem apagar a estrutura de espécies/formas.
+    for entry in entries:
+        entry["cards"] = [c for c in entry.get("cards", []) if str(c.get("source", "")).lower() == SOURCE.lower()]
+        if not entry["cards"]:
+            entry["lookupStatus"] = "pending"
+            entry["scanCursor"] = 0
+            entry["scanComplete"] = False
+
     by_key = {key_of(e): e for e in entries}
     mode, numbers = select_species(entries, progress)
-
     marketplace_calls = 0
     cards_added = 0
     processed_species = 0
@@ -397,7 +510,6 @@ def main():
                 entry["name"] = target["name"]
                 entry["formKind"] = target["formKind"]
                 entry["manualSearchUrl"] = target["manualSearchUrl"]
-                entry["cards"] = [c for c in entry.get("cards", []) if str(c.get("source", "")).lower() == SOURCE.lower()]
 
             candidates = blueprint_candidates(target, index)
             if not candidates:
@@ -450,12 +562,12 @@ def main():
     catalog.update({
         "version": 8,
         "updatedAt": time.strftime("%Y-%m-%d"),
-        "priceSource": "CardTrader",
-        "sources": ["CardTrader"],
-        "currencyPolicy": "Moeda retornada pela conta CardTrader",
+        "priceSource": SOURCE,
+        "sources": [SOURCE],
+        "currencyPolicy": "Moeda retornada pela CardTrader",
         "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas por blueprint",
         "catalogScope": "Catálogo incremental por espécie e forma usando a API oficial CardTrader",
-        "note": "Até 3 cartas por entrada. Cartas são ranqueadas pelo preço de referência Near Mint; formas Shiny não recebem cartas normais automaticamente.",
+        "note": "Até 3 cartas por entrada. Formas Shiny não recebem cartas normais automaticamente.",
         "stats": {"entries": len(entries), "entriesWithCards": filled, "cards": total_cards, "entriesIncomplete": incomplete},
     })
 
