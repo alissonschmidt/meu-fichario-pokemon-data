@@ -1,7 +1,7 @@
 {
   "version": 6,
-  "nextSpeciesNumber": 38,
-  "cycle": 1,
+  "nextSpeciesNumber": 1,
+  "cycle": 2,
   "lastRunAt": "2026-09-11T12:39:04Z",
   "lastBatchStart": 9,
   "lastBatchEnd": 16,
@@ -24,7 +24,9 @@
   "lastBatchHttpErrors": 0,
   "stoppedByRateLimit": false,
   "stoppedByHttpError": false,
-  "rankingsDefinitive": 30,
-  "rankingsProvisional": 84,
-  "rankingPolicy": "exhaustive-all-candidates"
+  "rankingsDefinitive": 0,
+  "rankingsProvisional": 114,
+  "rankingPolicy": "exhaustive-all-candidates",
+  "rankingResetRequested": true,
+  "rankingResetReason": "Reiniciar varredura exaustiva desde #0001 e zerar todos os cursores antigos"
 }
