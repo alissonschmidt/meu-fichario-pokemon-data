@@ -60,9 +60,9 @@ jobs:
       - name: Update exhaustive CardTrader ranking
         env:
           CARDTRADER_TOKEN: ${{ secrets.CARDTRADER_TOKEN }}
-          BATCH_SIZE: "10"
-          MAX_MARKETPLACE_CALLS: "200"
-          MARKETPLACE_DELAY: "1.05"
+          BATCH_SIZE: "25"
+          MAX_MARKETPLACE_CALLS: "600"
+          MARKETPLACE_DELAY: "0.30"
           INDEX_REQUEST_DELAY: "0.08"
           INDEX_MAX_AGE_DAYS: "7"
         run: python tools/update_catalog_cardtrader_v4.py
