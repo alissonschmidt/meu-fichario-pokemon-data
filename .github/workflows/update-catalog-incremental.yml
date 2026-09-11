@@ -20,7 +20,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -41,6 +41,30 @@ jobs:
             echo "ERRO: configure o secret CARDTRADER_TOKEN em Settings > Secrets and variables > Actions."
             exit 1
           fi
+          echo "CARDTRADER_TOKEN disponível para o workflow."
+
+      - name: Probe CardTrader API shape
+        env:
+          CARDTRADER_TOKEN: ${{ secrets.CARDTRADER_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          req = urllib.request.Request(
+              'https://api.cardtrader.com/api/v2/games',
+              headers={
+                  'Accept': 'application/json',
+                  'Authorization': f"Bearer {os.environ['CARDTRADER_TOKEN']}",
+                  'User-Agent': 'PokeBinder-CatalogUpdater/8.1'
+              }
+          )
+          with urllib.request.urlopen(req, timeout=30) as response:
+              payload = json.loads(response.read().decode('utf-8'))
+          print('CardTrader /games tipo:', type(payload).__name__)
+          if isinstance(payload, dict):
+              print('CardTrader /games chaves:', list(payload.keys())[:10])
+          elif isinstance(payload, list):
+              print('CardTrader /games itens:', len(payload), 'primeiro tipo:', type(payload[0]).__name__ if payload else 'vazio')
+          PY
 
       - name: Capture current CardTrader health
         run: |
@@ -93,7 +117,7 @@ jobs:
             exit 0
           fi
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41893818+github-actions[bot]@users.noreply.github.com"
           git add card_prices.json catalog_progress.json
           if [ -f cardtrader_blueprint_index.json ]; then git add cardtrader_blueprint_index.json; fi
           git commit -m "Atualiza catálogo via CardTrader"
