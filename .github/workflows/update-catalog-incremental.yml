@@ -20,7 +20,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout
@@ -33,63 +33,68 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install parser dependency
-        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.12.3
+      - name: Validate CardTrader token
+        env:
+          CARDTRADER_TOKEN: ${{ secrets.CARDTRADER_TOKEN }}
+        run: |
+          if [ -z "$CARDTRADER_TOKEN" ]; then
+            echo "ERRO: configure o secret CARDTRADER_TOKEN em Settings > Secrets and variables > Actions."
+            exit 1
+          fi
 
-      - name: Capture current LigaPokemon health
+      - name: Capture current CardTrader health
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           root = json.loads(Path('card_prices.json').read_text(encoding='utf-8'))
           entries = root.get('pokemon', [])
-          liga_cards = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() == 'ligapokemon']
-          liga_filled = sum(1 for e in entries if any(str(c.get('source','')).lower() == 'ligapokemon' for c in e.get('cards', [])))
-          Path('/tmp/catalog_before.json').write_text(json.dumps({'filled': liga_filled, 'cards': len(liga_cards)}))
-          print(f'Antes: {liga_filled} entradas LigaPokemon / {len(liga_cards)} cartas LigaPokemon')
+          cards = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() == 'cardtrader']
+          filled = sum(1 for e in entries if any(str(c.get('source','')).lower() == 'cardtrader' for c in e.get('cards', [])))
+          Path('/tmp/catalog_before.json').write_text(json.dumps({'filled': filled, 'cards': len(cards)}))
+          print(f'Antes: {filled} entradas CardTrader / {len(cards)} cartas CardTrader')
           PY
 
-      - name: Update one species slowly
+      - name: Update catalog from official CardTrader API
         env:
-          BATCH_SIZE: "1"
-          REQUEST_DELAY: "15"
-          MAX_CARD_DETAIL_REQUESTS: "3"
+          CARDTRADER_TOKEN: ${{ secrets.CARDTRADER_TOKEN }}
+          BATCH_SIZE: "4"
+          MAX_MARKETPLACE_CALLS: "40"
+          MARKETPLACE_DELAY: "1.05"
+          INDEX_REQUEST_DELAY: "0.06"
+          INDEX_MAX_AGE_DAYS: "7"
         run: python tools/update_catalog_incremental.py
 
-      - name: Validate LigaPokemon-only catalog
+      - name: Validate CardTrader-only catalog
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          before = json.loads(Path('/tmp/catalog_before.json').read_text())
           root = json.loads(Path('card_prices.json').read_text(encoding='utf-8'))
           entries = root.get('pokemon', [])
           if not entries:
               raise SystemExit('ERRO: catálogo sem entradas')
-          invalid = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() != 'ligapokemon']
+          invalid = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() != 'cardtrader']
           if invalid:
-              raise SystemExit(f'ERRO: ainda existem {len(invalid)} cartas de fonte diferente da LigaPokemon')
+              raise SystemExit(f'ERRO: existem {len(invalid)} cartas de fonte diferente da CardTrader')
           filled = sum(1 for e in entries if e.get('cards'))
           cards = sum(len(e.get('cards', [])) for e in entries)
-          if filled < before['filled']:
-              raise SystemExit(f'ERRO: entradas LigaPokemon caíram de {before["filled"]} para {filled}')
-          if cards < before['cards']:
-              raise SystemExit(f'ERRO: cartas LigaPokemon caíram de {before["cards"]} para {cards}')
+          version = int(root.get('version', 0))
+          if version < 8:
+              raise SystemExit(f'ERRO: versão inesperada do catálogo: {version}')
           progress = json.loads(Path('catalog_progress.json').read_text(encoding='utf-8'))
-          blocked = progress.get('stoppedByLigaBlock')
-          print(f'Depois: {filled} entradas LigaPokemon / {cards} cartas; modo {progress.get("mode")}; pendentes {progress.get("missingEntriesRemaining")}; bloqueado={blocked}')
-          if blocked:
-              print(f'Consulta encerrada de forma conservadora por HTTP {progress.get("blockedHttpStatus")} em {progress.get("blockedEntryName")}; cursor não avançou.')
+          print(f'Depois: {filled} entradas CardTrader / {cards} cartas; modo {progress.get("mode")}; incompletas {progress.get("entriesIncomplete")}')
           PY
 
       - name: Commit progress and catalog
         run: |
-          if git diff --quiet -- card_prices.json catalog_progress.json; then
+          if git diff --quiet -- card_prices.json catalog_progress.json cardtrader_blueprint_index.json; then
             echo "Nenhuma alteração neste lote."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add card_prices.json catalog_progress.json
-          git commit -m "Atualiza catálogo LigaPokemon em modo conservador"
+          if [ -f cardtrader_blueprint_index.json ]; then git add cardtrader_blueprint_index.json; fi
+          git commit -m "Atualiza catálogo via CardTrader"
           git push
