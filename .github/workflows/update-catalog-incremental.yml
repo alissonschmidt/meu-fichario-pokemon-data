@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - "tools/update_catalog_incremental.py"
+      - "tools/update_catalog_cardtrader_v2.py"
       - ".github/workflows/update-catalog-incremental.yml"
   workflow_dispatch:
   schedule:
@@ -54,7 +55,7 @@ jobs:
               headers={
                   'Accept': 'application/json',
                   'Authorization': f"Bearer {os.environ['CARDTRADER_TOKEN']}",
-                  'User-Agent': 'PokeBinder-CatalogUpdater/8.1'
+                  'User-Agent': 'PokeBinder-CatalogUpdater/8.2'
               }
           )
           with urllib.request.urlopen(req, timeout=30) as response:
@@ -62,6 +63,9 @@ jobs:
           print('CardTrader /games tipo:', type(payload).__name__)
           if isinstance(payload, dict):
               print('CardTrader /games chaves:', list(payload.keys())[:10])
+              nested = payload.get('array')
+              if nested is not None:
+                  print('CardTrader /games[array] tipo:', type(nested).__name__, 'itens:', len(nested) if hasattr(nested, '__len__') else '?')
           elif isinstance(payload, list):
               print('CardTrader /games itens:', len(payload), 'primeiro tipo:', type(payload[0]).__name__ if payload else 'vazio')
           PY
@@ -85,9 +89,9 @@ jobs:
           BATCH_SIZE: "4"
           MAX_MARKETPLACE_CALLS: "40"
           MARKETPLACE_DELAY: "1.05"
-          INDEX_REQUEST_DELAY: "0.06"
+          INDEX_REQUEST_DELAY: "0.08"
           INDEX_MAX_AGE_DAYS: "7"
-        run: python tools/update_catalog_incremental.py
+        run: python tools/update_catalog_cardtrader_v2.py
 
       - name: Validate CardTrader-only catalog
         run: |
@@ -107,6 +111,8 @@ jobs:
           if version < 8:
               raise SystemExit(f'ERRO: versão inesperada do catálogo: {version}')
           progress = json.loads(Path('catalog_progress.json').read_text(encoding='utf-8'))
+          if progress.get('parserVersion') != '8.2-array-wrapper':
+              raise SystemExit(f'ERRO: parser inesperado: {progress.get("parserVersion")}')
           print(f'Depois: {filled} entradas CardTrader / {cards} cartas; modo {progress.get("mode")}; incompletas {progress.get("entriesIncomplete")}')
           PY
 
@@ -117,7 +123,7 @@ jobs:
             exit 0
           fi
           git config user.name "github-actions[bot]"
-          git config user.email "41893818+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add card_prices.json catalog_progress.json
           if [ -f cardtrader_blueprint_index.json ]; then git add cardtrader_blueprint_index.json; fi
           git commit -m "Atualiza catálogo via CardTrader"
