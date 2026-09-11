@@ -4,9 +4,8 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "tools/update_catalog_incremental.py"
-      - "tools/update_catalog_cardtrader_v2.py"
       - "tools/update_catalog_cardtrader_v3.py"
+      - "tools/update_catalog_cardtrader_v4.py"
       - ".github/workflows/update-catalog-incremental.yml"
   workflow_dispatch:
   schedule:
@@ -17,7 +16,7 @@ permissions:
 
 concurrency:
   group: pokemon-card-catalog-incremental
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   update:
@@ -45,77 +44,70 @@ jobs:
           fi
           echo "CARDTRADER_TOKEN disponível para o workflow."
 
-      - name: Probe CardTrader API shape
-        env:
-          CARDTRADER_TOKEN: ${{ secrets.CARDTRADER_TOKEN }}
-        run: |
-          python - <<'PY'
-          import json, os, urllib.request
-          req = urllib.request.Request(
-              'https://api.cardtrader.com/api/v2/games',
-              headers={
-                  'Accept': 'application/json',
-                  'Authorization': f"Bearer {os.environ['CARDTRADER_TOKEN']}",
-                  'User-Agent': 'PokeBinder-CatalogUpdater/9.0'
-              }
-          )
-          with urllib.request.urlopen(req, timeout=30) as response:
-              payload = json.loads(response.read().decode('utf-8'))
-          print('CardTrader /games tipo:', type(payload).__name__)
-          if isinstance(payload, dict):
-              print('CardTrader /games chaves:', list(payload.keys())[:10])
-              nested = payload.get('array')
-              if nested is not None:
-                  print('CardTrader /games[array] tipo:', type(nested).__name__, 'itens:', len(nested) if hasattr(nested, '__len__') else '?')
-          elif isinstance(payload, list):
-              print('CardTrader /games itens:', len(payload), 'primeiro tipo:', type(payload[0]).__name__ if payload else 'vazio')
-          PY
-
-      - name: Capture current CardTrader health
+      - name: Capture current ranking health
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           root = json.loads(Path('card_prices.json').read_text(encoding='utf-8'))
           entries = root.get('pokemon', [])
-          cards = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() == 'cardtrader']
-          filled = sum(1 for e in entries if any(str(c.get('source','')).lower() == 'cardtrader' for c in e.get('cards', [])))
-          print(f'Antes: {filled} entradas CardTrader / {len(cards)} cartas CardTrader')
+          filled = sum(1 for e in entries if e.get('cards'))
+          definitive = sum(1 for e in entries if e.get('rankingComplete') is True)
+          provisional = sum(1 for e in entries if e.get('rankingComplete') is not True)
+          print(f'Antes: {filled} entradas com cartas; {definitive} rankings definitivos; {provisional} provisórios')
           PY
 
-      - name: Update catalog from official CardTrader API
+      - name: Update exhaustive CardTrader ranking
         env:
           CARDTRADER_TOKEN: ${{ secrets.CARDTRADER_TOKEN }}
           BATCH_SIZE: "10"
           MAX_MARKETPLACE_CALLS: "200"
-          MAX_CALLS_PER_ENTRY: "30"
-          EARLY_VALID_PER_ENTRY: "12"
           MARKETPLACE_DELAY: "1.05"
           INDEX_REQUEST_DELAY: "0.08"
           INDEX_MAX_AGE_DAYS: "7"
-        run: python tools/update_catalog_cardtrader_v3.py
+        run: python tools/update_catalog_cardtrader_v4.py
 
-      - name: Validate CardTrader-only catalog
+      - name: Validate exhaustive CardTrader catalog
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
+
           root = json.loads(Path('card_prices.json').read_text(encoding='utf-8'))
           entries = root.get('pokemon', [])
           if not entries:
               raise SystemExit('ERRO: catálogo sem entradas')
-          invalid = [c for e in entries for c in e.get('cards', []) if str(c.get('source','')).lower() != 'cardtrader']
+
+          invalid = [
+              c for e in entries for c in e.get('cards', [])
+              if str(c.get('source','')).lower() != 'cardtrader'
+          ]
           if invalid:
               raise SystemExit(f'ERRO: existem {len(invalid)} cartas de fonte diferente da CardTrader')
-          version = int(root.get('version', 0))
-          if version < 9:
-              raise SystemExit(f'ERRO: versão inesperada do catálogo: {version}')
+
+          if int(root.get('version', 0)) < 10:
+              raise SystemExit(f"ERRO: versão inesperada do catálogo: {root.get('version')}")
+
           progress = json.loads(Path('catalog_progress.json').read_text(encoding='utf-8'))
-          if progress.get('parserVersion') != '9.0-accelerated':
-              raise SystemExit(f'ERRO: coletor inesperado: {progress.get("parserVersion")}')
-          filled = sum(1 for e in entries if e.get('cards'))
+          if progress.get('parserVersion') != '10.0-exhaustive-ranking':
+              raise SystemExit(f"ERRO: coletor inesperado: {progress.get('parserVersion')}")
+          if progress.get('rankingPolicy') != 'exhaustive-all-candidates':
+              raise SystemExit(f"ERRO: política de ranking inesperada: {progress.get('rankingPolicy')}")
+
+          # Invariante: nenhum ranking pode ser marcado definitivo se o scan não terminou.
+          bad = [e for e in entries if e.get('rankingComplete') is True and e.get('scanComplete') is not True]
+          if bad:
+              raise SystemExit(f'ERRO: {len(bad)} rankings marcados definitivos sem scan completo')
+
+          definitive = sum(1 for e in entries if e.get('rankingComplete') is True)
+          provisional = sum(1 for e in entries if e.get('rankingComplete') is not True)
           cards = sum(len(e.get('cards', [])) for e in entries)
-          print(f'Depois: {filled} entradas CardTrader / {cards} cartas; modo {progress.get("mode")}; incompletas {progress.get("entriesIncomplete")}; calls {progress.get("lastBatchMarketplaceCalls")}; espécies {progress.get("lastBatchSpecies")}')
+          print(
+              f"Depois: {cards} cartas; {definitive} rankings definitivos; {provisional} provisórios; "
+              f"calls {progress.get('lastBatchMarketplaceCalls')}; "
+              f"espécies concluídas {progress.get('lastBatchSpeciesCompleted')}; "
+              f"HTTP errors {progress.get('lastBatchHttpErrors')}"
+          )
           PY
 
       - name: Commit progress and catalog
@@ -128,5 +120,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add card_prices.json catalog_progress.json
           if [ -f cardtrader_blueprint_index.json ]; then git add cardtrader_blueprint_index.json; fi
-          git commit -m "Atualiza catálogo via CardTrader acelerado"
+          git commit -m "Atualiza ranking exaustivo via CardTrader"
           git push
