@@ -1,6 +1,6 @@
 {
   "version": 7,
-  "updatedAt": "2026-09-10",
+  "updatedAt": "2026-09-11",
   "priceSource": "LigaPokemon",
   "sources": [
     "LigaPokemon"
@@ -678,7 +678,7 @@
       "cards": [],
       "lookupStatus": "blocked",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pikachu",
-      "lastLookupAt": "2026-09-10T23:15:28Z",
+      "lastLookupAt": "2026-09-11T01:13:19Z",
       "lastLookupHttpStatus": 403
     }
   ],
