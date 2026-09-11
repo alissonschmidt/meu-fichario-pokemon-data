@@ -1,20 +1,22 @@
 {
-  "version": 7,
+  "version": 8,
   "updatedAt": "2026-09-11",
-  "priceSource": "LigaPokemon",
+  "priceSource": "CardTrader",
   "sources": [
-    "LigaPokemon"
+    "CardTrader"
   ],
-  "catalogScope": "Catálogo por espécie e forma com coleta conservadora exclusivamente na LigaPokemon",
-  "note": "Até 3 cartas por entrada. Consultas são sequenciais e lentas. HTTP 403/429 encerra imediatamente a execução; nenhuma tentativa de contorno é feita.",
+  "catalogScope": "Catálogo incremental por espécie e forma usando a API oficial CardTrader",
+  "note": "Até 3 cartas por entrada. Formas Shiny não recebem cartas normais automaticamente.",
   "pokemon": [
     {
       "speciesNumber": 1,
       "name": "Bulbasaur",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Bulbasaur"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Bulbasaur",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 1,
@@ -22,16 +24,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:1",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Bulbasaur"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Bulbasaur",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 2,
       "name": "Ivysaur",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Ivysaur"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Ivysaur",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 2,
@@ -39,16 +45,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:2",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Ivysaur"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Ivysaur",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 3,
       "name": "Venusaur",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Venusaur"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Venusaur",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 3,
@@ -56,8 +66,10 @@
       "formKind": "mega",
       "cards": [],
       "apiIdentifier": "10033",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Venusaur"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Venusaur",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 3,
@@ -65,8 +77,10 @@
       "formKind": "variant",
       "cards": [],
       "apiIdentifier": "10195",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Venusaur%20Gmax"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Venusaur%20Gmax",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 3,
@@ -74,8 +88,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10033",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Venusaur"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Venusaur",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 3,
@@ -83,8 +99,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10195",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Venusaur%20Gmax"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Venusaur%20Gmax",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 3,
@@ -92,16 +110,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:3",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Venusaur"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Venusaur",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 4,
       "name": "Charmander",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charmander"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charmander",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 4,
@@ -109,16 +131,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:4",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charmander"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charmander",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 5,
       "name": "Charmeleon",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charmeleon"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charmeleon",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 5,
@@ -126,16 +152,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:5",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charmeleon"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charmeleon",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 6,
       "name": "Charizard",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charizard"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charizard",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 6,
@@ -143,26 +173,11 @@
       "formKind": "mega",
       "apiIdentifier": "10034",
       "manual": true,
-      "cards": [
-        {
-          "name": "Mega Charizard X ex",
-          "code": "125/094",
-          "collection": "PFL",
-          "value": "R$ 2.500,00",
-          "source": "LigaPokemon",
-          "url": "https://www.ligapokemon.com.br/?view=cards/card&card=Mega+Charizard+X+ex%20(125/094)&ed=PFL&num=125"
-        },
-        {
-          "name": "Mega Charizard X ex",
-          "code": "013/080",
-          "collection": "m2",
-          "value": "R$ 25,00",
-          "source": "LigaPokemon",
-          "url": "https://www.ligapokemon.com.br/?view=cards/card&card=Mega+Charizard+X+ex%20(013/080)&ed=m2&num=013"
-        }
-      ],
-      "lookupStatus": "found",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Charizard%20X"
+      "cards": [],
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Charizard%20X",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 6,
@@ -170,8 +185,10 @@
       "formKind": "mega",
       "cards": [],
       "apiIdentifier": "10035",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Y%20Charizard"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Y%20Charizard",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 6,
@@ -179,8 +196,10 @@
       "formKind": "variant",
       "cards": [],
       "apiIdentifier": "10196",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charizard%20Gmax"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Charizard%20Gmax",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 6,
@@ -188,8 +207,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10034",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20X%20Charizard"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20X%20Charizard",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 6,
@@ -197,8 +218,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10035",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Y%20Charizard"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Y%20Charizard",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 6,
@@ -206,8 +229,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10196",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charizard%20Gmax"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charizard%20Gmax",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 6,
@@ -215,16 +240,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:6",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charizard"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Charizard",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 7,
       "name": "Squirtle",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Squirtle"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Squirtle",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 7,
@@ -232,16 +261,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:7",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Squirtle"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Squirtle",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 8,
       "name": "Wartortle",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Wartortle"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Wartortle",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 8,
@@ -249,16 +282,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:8",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Wartortle"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Wartortle",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 9,
       "name": "Blastoise",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Blastoise"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Blastoise",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 9,
@@ -266,8 +303,10 @@
       "formKind": "mega",
       "cards": [],
       "apiIdentifier": "10036",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Blastoise"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Blastoise",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 9,
@@ -275,8 +314,10 @@
       "formKind": "variant",
       "cards": [],
       "apiIdentifier": "10197",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Blastoise%20Gmax"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Blastoise%20Gmax",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 9,
@@ -284,8 +325,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10036",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Blastoise"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Blastoise",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 9,
@@ -293,8 +336,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10197",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Blastoise%20Gmax"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Blastoise%20Gmax",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 9,
@@ -302,16 +347,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:9",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Blastoise"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Blastoise",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 10,
       "name": "Caterpie",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Caterpie"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Caterpie",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 10,
@@ -319,16 +368,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Caterpie"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Caterpie",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 11,
       "name": "Metapod",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Metapod"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Metapod",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 11,
@@ -336,16 +389,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:11",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Metapod"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Metapod",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 12,
       "name": "Butterfree",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Butterfree"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Butterfree",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 12,
@@ -353,8 +410,10 @@
       "formKind": "variant",
       "cards": [],
       "apiIdentifier": "10198",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Butterfree%20Gmax"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Butterfree%20Gmax",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 12,
@@ -362,8 +421,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10198",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Butterfree%20Gmax"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Butterfree%20Gmax",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 12,
@@ -371,16 +432,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:12",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Butterfree"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Butterfree",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 13,
       "name": "Weedle",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Weedle"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Weedle",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 13,
@@ -388,16 +453,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:13",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Weedle"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Weedle",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 14,
       "name": "Kakuna",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Kakuna"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Kakuna",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 14,
@@ -405,16 +474,20 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:14",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Kakuna"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Kakuna",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 15,
       "name": "Beedrill",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Beedrill"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Beedrill",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 15,
@@ -422,8 +495,10 @@
       "formKind": "mega",
       "cards": [],
       "apiIdentifier": "10090",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Beedrill"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Beedrill",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 15,
@@ -431,8 +506,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:10090",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Beedrill"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Beedrill",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 15,
@@ -440,8 +517,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:15",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Beedrill"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Beedrill",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 16,
@@ -449,8 +528,10 @@
       "formKind": "normal",
       "manual": true,
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgey"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgey",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 16,
@@ -458,8 +539,10 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:16",
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Pidgey"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Pidgey",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 17,
@@ -467,17 +550,21 @@
       "formKind": "normal",
       "manual": true,
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgeotto"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgeotto",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 17,
       "name": "Shiny Pidgeotto",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Pidgeotto",
-      "apiIdentifier": "shiny:17"
+      "apiIdentifier": "shiny:17",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 18,
@@ -485,212 +572,293 @@
       "formKind": "normal",
       "manual": true,
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgeot"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pidgeot",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 18,
       "name": "Mega Pidgeot",
       "formKind": "mega",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Mega%20Pidgeot",
-      "apiIdentifier": "10073"
+      "apiIdentifier": "10073",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 18,
       "name": "Shiny Mega Pidgeot",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Mega%20Pidgeot",
-      "apiIdentifier": "shiny:10073"
+      "apiIdentifier": "shiny:10073",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 18,
       "name": "Shiny Pidgeot",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Pidgeot",
-      "apiIdentifier": "shiny:18"
+      "apiIdentifier": "shiny:18",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 19,
       "name": "Rattata",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Rattata"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Rattata",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 19,
       "name": "Rattata de Alola",
       "formKind": "alola",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Rattata%20de%20Alola",
-      "apiIdentifier": "10091"
+      "apiIdentifier": "10091",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 19,
       "name": "Shiny Rattata de Alola",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Rattata%20de%20Alola",
-      "apiIdentifier": "shiny:10091"
+      "apiIdentifier": "shiny:10091",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 19,
       "name": "Shiny Rattata",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Rattata",
-      "apiIdentifier": "shiny:19"
+      "apiIdentifier": "shiny:19",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 20,
       "name": "Raticate",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Raticate"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Raticate",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 20,
       "name": "Raticate de Alola",
       "formKind": "alola",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Raticate%20de%20Alola",
-      "apiIdentifier": "10092"
+      "apiIdentifier": "10092",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 20,
       "name": "Raticate Totem de Alola",
       "formKind": "alola",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Raticate%20Totem%20de%20Alola",
-      "apiIdentifier": "10093"
+      "apiIdentifier": "10093",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 20,
       "name": "Shiny Raticate de Alola",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Raticate%20de%20Alola",
-      "apiIdentifier": "shiny:10092"
+      "apiIdentifier": "shiny:10092",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 20,
       "name": "Shiny Raticate Totem de Alola",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Raticate%20Totem%20de%20Alola",
-      "apiIdentifier": "shiny:10093"
+      "apiIdentifier": "shiny:10093",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 20,
       "name": "Shiny Raticate",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Raticate",
-      "apiIdentifier": "shiny:20"
+      "apiIdentifier": "shiny:20",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 21,
       "name": "Spearow",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Spearow"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Spearow",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 21,
       "name": "Shiny Spearow",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Spearow",
-      "apiIdentifier": "shiny:21"
+      "apiIdentifier": "shiny:21",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 22,
       "name": "Fearow",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Fearow"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Fearow",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 22,
       "name": "Shiny Fearow",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Fearow",
-      "apiIdentifier": "shiny:22"
+      "apiIdentifier": "shiny:22",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 23,
       "name": "Ekans",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Ekans"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Ekans",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 23,
       "name": "Shiny Ekans",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Ekans",
-      "apiIdentifier": "shiny:23"
+      "apiIdentifier": "shiny:23",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 24,
       "name": "Arbok",
       "formKind": "normal",
       "cards": [],
-      "lookupStatus": "manual_search_required",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Arbok"
+      "lookupStatus": "pending",
+      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Arbok",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 24,
       "name": "Shiny Arbok",
       "formKind": "shiny",
       "cards": [],
-      "lookupStatus": "manual_search_required",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Arbok",
-      "apiIdentifier": "shiny:24"
+      "apiIdentifier": "shiny:24",
+      "scanCursor": 0,
+      "scanComplete": false
     },
     {
       "speciesNumber": 25,
       "name": "Pikachu",
       "formKind": "normal",
-      "cards": [],
-      "lookupStatus": "blocked",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Pikachu",
-      "lastLookupAt": "2026-09-11T06:08:13Z",
-      "lastLookupHttpStatus": 403
+      "cards": [
+        {
+          "name": "Pikachu",
+          "code": "pr",
+          "collection": "Miscellaneous Promos",
+          "value": "R$ 2,322.29",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 277448,
+          "referenceCents": 232229,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Pikachu",
+          "code": "pr",
+          "collection": "Miscellaneous Promos",
+          "value": "R$ 1,218.76",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 301863,
+          "referenceCents": 121876,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Pikachu",
+          "code": "wpromos",
+          "collection": "W Promos",
+          "value": "R$ 1,165.75",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 121533,
+          "referenceCents": 116575,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "lastLookupAt": "2026-09-11T11:36:10Z",
+      "lastLookupHttpStatus": 403,
+      "scanCursor": 40,
+      "scanComplete": false,
+      "candidateBlueprints": 552
     }
   ],
   "stats": {
     "entries": 75,
     "entriesWithCards": 1,
-    "entriesWithoutCards": 74,
-    "cards": 2,
-    "lookupStatuses": {
-      "manual_search_required": 73,
-      "found": 1,
-      "blocked": 1
-    }
-  }
+    "cards": 3,
+    "entriesIncomplete": 75
+  },
+  "currencyPolicy": "Moeda retornada pela CardTrader",
+  "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas por blueprint"
 }
