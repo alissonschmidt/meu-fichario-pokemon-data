@@ -12,13 +12,52 @@
       "speciesNumber": 1,
       "name": "Bulbasaur",
       "formKind": "normal",
-      "cards": [],
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Bulbasaur",
-      "scanCursor": 0,
-      "scanComplete": false,
-      "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "cards": [
+        {
+          "name": "Bulbasaur",
+          "code": "es1",
+          "collection": "Pokémon-e Starter Deck",
+          "value": "R$ 2,326.47",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 328336,
+          "referenceCents": 232647,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Bulbasaur",
+          "code": "csvl1",
+          "collection": "CSVL1: Adventure Special Pack",
+          "value": "R$ 1,467.90",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 344429,
+          "referenceCents": 146790,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Bulbasaur",
+          "code": "mew",
+          "collection": "151",
+          "value": "R$ 891.95",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 259241,
+          "referenceCents": 89195,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "scanCursor": 88,
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "candidateBlueprints": 88,
+      "lastLookupAt": "2026-09-11T12:59:22Z"
     },
     {
       "speciesNumber": 1,
@@ -26,24 +65,64 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:1",
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Bulbasaur",
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "scanCursor": 0,
-      "scanComplete": false,
-      "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "candidateBlueprints": 0
     },
     {
       "speciesNumber": 2,
       "name": "Ivysaur",
       "formKind": "normal",
-      "cards": [],
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Ivysaur",
-      "scanCursor": 0,
-      "scanComplete": false,
-      "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "cards": [
+        {
+          "name": "Ivysaur",
+          "code": "csvl1",
+          "collection": "CSVL1: Adventure Special Pack",
+          "value": "R$ 3,961.99",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 344438,
+          "referenceCents": 396199,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Ivysaur",
+          "code": "si",
+          "collection": "Southern Islands",
+          "value": "R$ 603.66",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 127860,
+          "referenceCents": 60366,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Ivysaur",
+          "code": "pop2",
+          "collection": "POP Series 2",
+          "value": "R$ 494.73",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 124293,
+          "referenceCents": 49473,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "scanCursor": 53,
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "candidateBlueprints": 53,
+      "lastLookupAt": "2026-09-11T13:00:45Z"
     },
     {
       "speciesNumber": 2,
@@ -51,24 +130,64 @@
       "formKind": "shiny",
       "cards": [],
       "apiIdentifier": "shiny:2",
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Shiny%20Ivysaur",
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "scanCursor": 0,
-      "scanComplete": false,
-      "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "candidateBlueprints": 0
     },
     {
       "speciesNumber": 3,
       "name": "Venusaur",
       "formKind": "normal",
-      "cards": [],
-      "lookupStatus": "pending",
-      "manualSearchUrl": "https://www.ligapokemon.com.br/?view=cards/search&card=Venusaur",
-      "scanCursor": 0,
+      "cards": [
+        {
+          "name": "Venusaur",
+          "code": "shbs",
+          "collection": "Base Set Shadowless",
+          "value": "R$ 9,290.85",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 134267,
+          "referenceCents": 929085,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Venusaur",
+          "code": "bs",
+          "collection": "Base Set",
+          "value": "R$ 3,869.24",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 111162,
+          "referenceCents": 386924,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Venusaur",
+          "code": "pop2",
+          "collection": "POP Series 2",
+          "value": "R$ 2,906.94",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 124291,
+          "referenceCents": 290694,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "scanCursor": 59,
       "scanComplete": false,
       "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "rankingStatus": "provisional",
+      "candidateBlueprints": 79,
+      "lastLookupAt": "2026-09-11T13:02:17Z"
     },
     {
       "speciesNumber": 3,
@@ -995,7 +1114,7 @@
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "lastLookupAt": "2026-09-11T11:36:10Z",
-      "scanCursor": 40,
+      "scanCursor": 0,
       "scanComplete": false,
       "candidateBlueprints": 552,
       "rankingComplete": false,
@@ -1043,7 +1162,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 24,
+      "scanCursor": 0,
       "scanComplete": false,
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
@@ -1060,12 +1179,12 @@
       "formKind": "alola",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10100",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 26,
@@ -1073,12 +1192,12 @@
       "formKind": "mega",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10304",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 26,
@@ -1086,12 +1205,12 @@
       "formKind": "mega",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10305",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 26,
@@ -1099,12 +1218,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:10100",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 26,
@@ -1112,12 +1231,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:10304",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 26,
@@ -1125,12 +1244,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:10305",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 26,
@@ -1138,12 +1257,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:26",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 27,
@@ -1187,7 +1306,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 13,
+      "scanCursor": 0,
       "scanComplete": false,
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
@@ -1204,12 +1323,12 @@
       "formKind": "alola",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10101",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 27,
@@ -1217,12 +1336,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:10101",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 27,
@@ -1230,12 +1349,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:27",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 28,
@@ -1279,7 +1398,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 12,
+      "scanCursor": 0,
       "scanComplete": false,
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
@@ -1296,12 +1415,12 @@
       "formKind": "alola",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10102",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 28,
@@ -1309,12 +1428,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:10102",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 28,
@@ -1322,12 +1441,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:28",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 29,
@@ -1335,11 +1454,11 @@
       "formKind": "normal",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 29,
@@ -1347,12 +1466,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:29",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 30,
@@ -1396,7 +1515,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 17,
+      "scanCursor": 0,
       "scanComplete": false,
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
@@ -1413,12 +1532,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:30",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 31,
@@ -1462,7 +1581,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 17,
+      "scanCursor": 0,
       "scanComplete": false,
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
@@ -1479,12 +1598,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:31",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 32,
@@ -1492,11 +1611,11 @@
       "formKind": "normal",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 32,
@@ -1504,12 +1623,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:32",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 33,
@@ -1553,7 +1672,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 13,
+      "scanCursor": 0,
       "scanComplete": false,
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
@@ -1570,12 +1689,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:33",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 34,
@@ -1619,7 +1738,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 15,
+      "scanCursor": 0,
       "scanComplete": false,
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
@@ -1636,12 +1755,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:34",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 35,
@@ -1685,7 +1804,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 16,
+      "scanCursor": 0,
       "scanComplete": false,
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
@@ -1702,12 +1821,12 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:35",
-      "rankingComplete": true,
-      "rankingStatus": "definitive"
+      "rankingComplete": false,
+      "rankingStatus": "provisional"
     },
     {
       "speciesNumber": 36,
@@ -1751,10 +1870,10 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 74,
-      "scanComplete": true,
-      "rankingComplete": true,
-      "rankingStatus": "definitive",
+      "scanCursor": 0,
+      "scanComplete": false,
+      "rankingComplete": false,
+      "rankingStatus": "provisional",
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "candidateBlueprints": 74,
@@ -1802,10 +1921,10 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 7,
-      "scanComplete": true,
-      "rankingComplete": true,
-      "rankingStatus": "definitive",
+      "scanCursor": 0,
+      "scanComplete": false,
+      "rankingComplete": false,
+      "rankingStatus": "provisional",
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10278",
@@ -1818,10 +1937,10 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "rankingComplete": true,
-      "rankingStatus": "definitive",
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "rankingComplete": false,
+      "rankingStatus": "provisional",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:10278",
       "candidateBlueprints": 0
@@ -1832,10 +1951,10 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "rankingComplete": true,
-      "rankingStatus": "definitive",
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "rankingComplete": false,
+      "rankingStatus": "provisional",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:36",
       "candidateBlueprints": 0
@@ -1882,10 +2001,10 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 93,
-      "scanComplete": true,
-      "rankingComplete": true,
-      "rankingStatus": "definitive",
+      "scanCursor": 0,
+      "scanComplete": false,
+      "rankingComplete": false,
+      "rankingStatus": "provisional",
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "candidateBlueprints": 93,
@@ -1897,10 +2016,10 @@
       "formKind": "alola",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "rankingComplete": true,
-      "rankingStatus": "definitive",
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "rankingComplete": false,
+      "rankingStatus": "provisional",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10103",
       "candidateBlueprints": 0
@@ -1911,10 +2030,10 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "rankingComplete": true,
-      "rankingStatus": "definitive",
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "rankingComplete": false,
+      "rankingStatus": "provisional",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:10103",
       "candidateBlueprints": 0
@@ -1925,10 +2044,10 @@
       "formKind": "shiny",
       "cards": [],
       "scanCursor": 0,
-      "scanComplete": true,
-      "rankingComplete": true,
-      "rankingStatus": "definitive",
-      "lookupStatus": "not_found",
+      "scanComplete": false,
+      "rankingComplete": false,
+      "rankingStatus": "provisional",
+      "lookupStatus": "pending",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:37",
       "candidateBlueprints": 0
@@ -1975,7 +2094,7 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 26,
+      "scanCursor": 0,
       "scanComplete": false,
       "rankingComplete": false,
       "rankingStatus": "provisional",
@@ -1987,10 +2106,10 @@
   ],
   "stats": {
     "entries": 114,
-    "entriesWithCards": 13,
-    "cards": 39,
-    "rankingsDefinitive": 30,
-    "rankingsProvisional": 84
+    "entriesWithCards": 16,
+    "cards": 48,
+    "rankingsDefinitive": 4,
+    "rankingsProvisional": 110
   },
   "currencyPolicy": "Moeda retornada pela CardTrader",
   "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas por blueprint",
