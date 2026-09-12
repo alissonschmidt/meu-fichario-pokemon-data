@@ -29,7 +29,16 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Harden TCG API pagination
+        run: |
+          # A API às vezes retorna HTTP 500 persistente em uma página grande específica.
+          # Reduzimos a página para mudar os limites da consulta e aumentamos as tentativas.
+          sed -i 's/PAGE_SIZE = 250/PAGE_SIZE = 200/' tools/populate_featured_cards.py
+          sed -i 's/def fetch_json(url, retries=6):/def fetch_json(url, retries=10):/' tools/populate_featured_cards.py
+
       - name: Populate 1025 base Pokemon first
+        env:
+          PYTHONUNBUFFERED: "1"
         run: python tools/populate_featured_cards.py --phase base
 
       - name: Validate base catalog
@@ -59,6 +68,8 @@ jobs:
         run: git pull --rebase origin main
 
       - name: Populate Mega, Shiny and other forms
+        env:
+          PYTHONUNBUFFERED: "1"
         run: python tools/populate_featured_cards.py --phase forms
 
       - name: Validate forms catalog
