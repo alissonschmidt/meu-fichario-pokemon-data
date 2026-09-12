@@ -14,7 +14,7 @@ TCG_API = "https://api.pokemontcg.io/v2/cards"
 POKE_SPECIES = "https://pokeapi.co/api/v2/pokemon-species?limit=1025"
 POKE_ALL = "https://pokeapi.co/api/v2/pokemon?limit=5000"
 USER_AGENT = "PokeBinder-FeaturedCatalog/2.0"
-PAGE_SIZE = 250
+PAGE_SIZE = 200
 
 CLASSIC_SETS = {
     "base set", "jungle", "fossil", "team rocket", "gym heroes", "gym challenge",
@@ -30,7 +30,7 @@ MECHANICS = (" ex", " gx", " vmax", " vstar", " lv.x", "break", "prime", "legend
 REGIONAL = {"alola": "Alolan", "galar": "Galarian", "hisui": "Hisuian", "paldea": "Paldean"}
 
 
-def fetch_json(url, retries=6):
+def fetch_json(url, retries=10):
     last = None
     for attempt in range(retries):
         try:
