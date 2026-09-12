@@ -2336,7 +2336,7 @@
       ],
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
-      "lastLookupAt": "2026-09-12T13:00:21Z",
+      "lastLookupAt": "2026-09-12T16:23:55Z",
       "scanCursor": 552,
       "scanComplete": true,
       "candidateBlueprints": 552,
@@ -2393,7 +2393,7 @@
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10080",
       "candidateBlueprints": 552,
-      "lastLookupAt": "2026-09-12T13:00:21Z"
+      "lastLookupAt": "2026-09-12T16:23:55Z"
     },
     {
       "speciesNumber": 25,
@@ -2445,7 +2445,7 @@
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10081",
       "candidateBlueprints": 552,
-      "lastLookupAt": "2026-09-12T13:00:21Z"
+      "lastLookupAt": "2026-09-12T16:23:55Z"
     },
     {
       "speciesNumber": 25,
@@ -2497,7 +2497,7 @@
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "10082",
       "candidateBlueprints": 552,
-      "lastLookupAt": "2026-09-12T13:01:46Z"
+      "lastLookupAt": "2026-09-12T16:23:55Z"
     },
     {
       "speciesNumber": 25,
@@ -2529,27 +2529,79 @@
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         },
         {
-          "name": "Pikachu ex",
-          "code": "wcs23",
-          "collection": "World Championships 2023 Yokohama Deck -Pikachu-",
-          "value": "R$ 41,212.98",
+          "name": "Pikachu",
+          "code": "s10b",
+          "collection": "Pokémon GO Enhanced Expansion Pack",
+          "value": "R$ 48,123.21",
           "source": "CardTrader",
           "url": "https://www.cardtrader.com/en/pokemon",
-          "blueprintId": 265114,
-          "referenceCents": 4121298,
+          "blueprintId": 234382,
+          "referenceCents": 4812321,
           "currency": "BRL",
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
-      "scanCursor": 450,
+      "scanCursor": 552,
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "10083",
+      "candidateBlueprints": 552,
+      "lastLookupAt": "2026-09-12T16:25:08Z"
+    },
+    {
+      "speciesNumber": 25,
+      "name": "Pikachu",
+      "formKind": "variant",
+      "cards": [
+        {
+          "name": "Pikachu",
+          "code": "hsz-b",
+          "collection": "National Pokédex Beginning Set",
+          "value": "R$ 89,946.75",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 312805,
+          "referenceCents": 8994675,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Pikachu",
+          "code": "s-p",
+          "collection": "S-P: Sword & Shield Promos",
+          "value": "R$ 77,383.62",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 238791,
+          "referenceCents": 7738362,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Pikachu ex",
+          "code": "wcs23",
+          "collection": "World Championships 2023 Yokohama Deck -Pikachu-",
+          "value": "R$ 41,410.54",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 265114,
+          "referenceCents": 4141054,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 498,
       "scanComplete": false,
       "rankingComplete": false,
       "rankingStatus": "provisional",
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
-      "apiIdentifier": "10083",
+      "apiIdentifier": "10084",
       "candidateBlueprints": 552,
-      "lastLookupAt": "2026-09-12T13:06:15Z"
+      "lastLookupAt": "2026-09-12T16:30:50Z"
     },
     {
       "speciesNumber": 25,
@@ -2591,6 +2643,20 @@
       "lookupStatus": "not_found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
       "apiIdentifier": "shiny:10082",
+      "candidateBlueprints": 0
+    },
+    {
+      "speciesNumber": 25,
+      "name": "Shiny Pikachu",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:10083",
       "candidateBlueprints": 0
     },
     {
@@ -3592,10 +3658,10 @@
     }
   ],
   "stats": {
-    "entries": 122,
-    "entriesWithCards": 51,
-    "cards": 151,
-    "rankingsDefinitive": 82,
+    "entries": 124,
+    "entriesWithCards": 52,
+    "cards": 154,
+    "rankingsDefinitive": 84,
     "rankingsProvisional": 40
   },
   "currencyPolicy": "Moeda retornada pela CardTrader",
