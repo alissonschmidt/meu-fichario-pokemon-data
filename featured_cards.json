@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-12",
+  "selectionPolicy": "featured-score-v1",
+  "description": "Cartas em destaque selecionadas por fama, relevância histórica e interesse de colecionador. Preços não são armazenados no PokéBinder.",
+  "pokemon": [
+    {
+      "speciesNumber": 6,
+      "name": "Charizard",
+      "featuredCards": [
+        {
+          "name": "Charizard",
+          "set": "Base Set",
+          "year": 1999,
+          "number": "4/102",
+          "rarity": "Holo Rare",
+          "category": "historical",
+          "baseScore": 95,
+          "marketplace": "CardTrader",
+          "marketUrl": "https://www.cardtrader.com/en/cards/111151-charizard-holo-rare-4-102-base-set"
+        },
+        {
+          "name": "M Charizard ex",
+          "set": "Flashfire",
+          "year": 2014,
+          "number": "107/106",
+          "rarity": "Secret Rare",
+          "category": "collector",
+          "baseScore": 84,
+          "marketplace": "CardTrader",
+          "marketUrl": "https://www.cardtrader.com/en/cards/119310-m-charizard-ex-secret-rare-107-106-flashfire"
+        },
+        {
+          "name": "Charizard VMAX",
+          "set": "Shining Fates",
+          "year": 2021,
+          "number": "SV107/SV122",
+          "rarity": "Shiny Rare",
+          "category": "iconic",
+          "baseScore": 78,
+          "marketplace": "CardTrader",
+          "marketUrl": "https://www.cardtrader.com/en/cards/153134-charizard-vmax-shiny-rare-sv107-shining-fates"
+        }
+      ]
+    }
+  ]
+}
