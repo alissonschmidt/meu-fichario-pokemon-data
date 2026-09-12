@@ -1,6 +1,6 @@
 {
   "version": 10,
-  "updatedAt": "2026-09-11",
+  "updatedAt": "2026-09-12",
   "priceSource": "CardTrader",
   "sources": [
     "CardTrader"
@@ -2299,6 +2299,18 @@
       "cards": [
         {
           "name": "Pikachu",
+          "code": "hsz-b",
+          "collection": "National Pokédex Beginning Set",
+          "value": "R$ 89,946.75",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 312805,
+          "referenceCents": 8994675,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Pikachu",
           "code": "s-p",
           "collection": "S-P: Sword & Shield Promos",
           "value": "R$ 77,383.62",
@@ -2311,37 +2323,91 @@
         },
         {
           "name": "Pikachu",
-          "code": "mc16",
-          "collection": "McDonald's Collection 2016",
-          "value": "R$ 6,195.87",
+          "code": "s10b",
+          "collection": "Pokémon GO Enhanced Expansion Pack",
+          "value": "R$ 48,123.21",
           "source": "CardTrader",
           "url": "https://www.cardtrader.com/en/pokemon",
-          "blueprintId": 123017,
-          "referenceCents": 619587,
-          "currency": "BRL",
-          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
-        },
-        {
-          "name": "Pikachu ex",
-          "code": "mc",
-          "collection": "MEGA Start Deck 100 Battle Collection",
-          "value": "R$ 5,337.42",
-          "source": "CardTrader",
-          "url": "https://www.cardtrader.com/en/pokemon",
-          "blueprintId": 364563,
-          "referenceCents": 533742,
+          "blueprintId": 234382,
+          "referenceCents": 4812321,
           "currency": "BRL",
           "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
         }
       ],
       "lookupStatus": "found",
       "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
-      "lastLookupAt": "2026-09-11T22:48:13Z",
-      "scanCursor": 258,
-      "scanComplete": false,
+      "lastLookupAt": "2026-09-12T00:52:02Z",
+      "scanCursor": 552,
+      "scanComplete": true,
       "candidateBlueprints": 552,
+      "rankingComplete": true,
+      "rankingStatus": "definitive"
+    },
+    {
+      "speciesNumber": 25,
+      "name": "Pikachu",
+      "formKind": "variant",
+      "cards": [
+        {
+          "name": "Pikachu",
+          "code": "s-p",
+          "collection": "S-P: Sword & Shield Promos",
+          "value": "R$ 77,383.62",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 238791,
+          "referenceCents": 7738362,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Pikachu",
+          "code": "sm-p",
+          "collection": "SM-P: Sun & Moon Promos",
+          "value": "R$ 14,591.82",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 237940,
+          "referenceCents": 1459182,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        },
+        {
+          "name": "Pikachu",
+          "code": "151c",
+          "collection": "Collect 151",
+          "value": "R$ 7,503.69",
+          "source": "CardTrader",
+          "url": "https://www.cardtrader.com/en/pokemon",
+          "blueprintId": 317024,
+          "referenceCents": 750369,
+          "currency": "BRL",
+          "priceMethod": "Mediana de até 15 ofertas Near Mint mais baratas"
+        }
+      ],
+      "scanCursor": 306,
+      "scanComplete": false,
       "rankingComplete": false,
-      "rankingStatus": "provisional"
+      "rankingStatus": "provisional",
+      "lookupStatus": "found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "10080",
+      "candidateBlueprints": 552,
+      "lastLookupAt": "2026-09-12T00:55:33Z"
+    },
+    {
+      "speciesNumber": 25,
+      "name": "Shiny Pikachu",
+      "formKind": "shiny",
+      "cards": [],
+      "scanCursor": 0,
+      "scanComplete": true,
+      "rankingComplete": true,
+      "rankingStatus": "definitive",
+      "lookupStatus": "not_found",
+      "manualSearchUrl": "https://www.cardtrader.com/en/pokemon",
+      "apiIdentifier": "shiny:25",
+      "candidateBlueprints": 0
     },
     {
       "speciesNumber": 26,
@@ -3328,10 +3394,10 @@
     }
   ],
   "stats": {
-    "entries": 114,
-    "entriesWithCards": 47,
-    "cards": 139,
-    "rankingsDefinitive": 74,
+    "entries": 116,
+    "entriesWithCards": 48,
+    "cards": 142,
+    "rankingsDefinitive": 76,
     "rankingsProvisional": 40
   },
   "currencyPolicy": "Moeda retornada pela CardTrader",
