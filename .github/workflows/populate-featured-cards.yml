@@ -29,23 +29,50 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Check existing base catalog
+        id: base_status
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('featured_cards.json')
+          complete = False
+          if path.exists():
+              try:
+                  data = json.loads(path.read_text(encoding='utf-8'))
+                  base = [e for e in data.get('pokemon', []) if 'apiIdentifier' not in e]
+                  numbers = {e.get('speciesNumber') for e in base}
+                  complete = len(base) == 1025 and numbers == set(range(1, 1026))
+              except Exception:
+                  complete = False
+
+          with open(__import__('os').environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+              out.write(f"complete={'true' if complete else 'false'}\n")
+          print('Base existente válida:', complete)
+          PY
+
       - name: Populate 1025 base Pokemon first
+        if: steps.base_status.outputs.complete != 'true'
         env:
           PYTHONUNBUFFERED: "1"
         run: python tools/populate_featured_cards.py --phase base
 
       - name: Validate base catalog
+        if: steps.base_status.outputs.complete != 'true'
         run: |
           python - <<'PY'
           import json
           data=json.load(open('featured_cards.json',encoding='utf-8'))
           base=[e for e in data['pokemon'] if 'apiIdentifier' not in e]
           assert len(base)==1025, f'Esperado 1025, recebido {len(base)}'
+          assert {e.get('speciesNumber') for e in base} == set(range(1,1026))
           assert data.get('stats',{}).get('phase')=='base-complete'
           print('Base validada:', len(base))
           PY
 
       - name: Commit base catalog
+        if: steps.base_status.outputs.complete != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -56,6 +83,10 @@ jobs:
             git commit -m "Popula cartas em destaque dos 1025 Pokémon base"
             git push
           fi
+
+      - name: Reuse completed base
+        if: steps.base_status.outputs.complete == 'true'
+        run: echo "Base 1025 já está completa; pulando reprocessamento e seguindo para formas."
 
       - name: Populate Mega, Shiny and other forms
         env:
@@ -70,12 +101,15 @@ jobs:
           base=[e for e in data['pokemon'] if 'apiIdentifier' not in e]
           forms=[e for e in data['pokemon'] if 'apiIdentifier' in e]
           assert len(base)==1025
+          assert {e.get('speciesNumber') for e in base} == set(range(1,1026))
           assert data.get('stats',{}).get('phase')=='forms-complete'
           print('Base:',len(base),'Formas:',len(forms))
           PY
 
       - name: Commit forms catalog
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add featured_cards.json
           if git diff --cached --quiet; then
             echo "Sem mudanças na fase de formas."
