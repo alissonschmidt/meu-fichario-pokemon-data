@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-12",
+  "updatedAt": "2026-09-14",
   "selectionPolicy": "featured-score-v1",
   "selectionMethod": "metadata-heuristic-v1",
   "description": "Cartas em destaque selecionadas por fama, relevância histórica e interesse de colecionador. Preços não são armazenados no PokéBinder.",
   "stats": {
     "phase": "forms-complete",
-    "sourceCardsScanned": 20479,
+    "sourceCardsScanned": 20444,
     "basePokemon": 1025,
     "formEntries": 667,
-    "entriesWithFeaturedCards": 1512
+    "entriesWithFeaturedCards": 1509
   },
   "pokemon": [
     {
@@ -43756,37 +43756,37 @@
           "name": "M Charizard-EX",
           "set": "Flashfire",
           "year": 2014,
-          "number": "107/106",
-          "rarity": "Rare Secret",
-          "category": "historical",
-          "baseScore": 85.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Charizard-EX+Flashfire+107&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/xy2/107_hires.png"
-        },
-        {
-          "name": "M Charizard-EX",
-          "set": "Flashfire",
-          "year": 2014,
           "number": "108/106",
           "rarity": "Rare Secret",
-          "category": "iconic",
+          "category": "historical",
           "baseScore": 85.0,
           "marketplace": "TCGplayer",
           "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Charizard-EX+Flashfire+108&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
           "imageUrl": "https://images.pokemontcg.io/xy2/108_hires.png"
         },
         {
-          "name": "Reshiram & Charizard-GX",
-          "set": "Unbroken Bonds",
-          "year": 2019,
-          "number": "217/214",
-          "rarity": "Rare Rainbow",
+          "name": "Mega Charizard X ex",
+          "set": "Phantasmal Flames",
+          "year": 2025,
+          "number": "109/94",
+          "rarity": "Ultra Rare",
+          "category": "iconic",
+          "baseScore": 70.0,
+          "marketplace": "TCGplayer",
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Charizard+X+ex+Phantasmal+Flames+109&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/me2/109_hires.png"
+        },
+        {
+          "name": "Mega Charizard X ex",
+          "set": "Phantasmal Flames",
+          "year": 2025,
+          "number": "125/94",
+          "rarity": "Special Illustration Rare",
           "category": "collector",
           "baseScore": 70.0,
           "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Reshiram+%26+Charizard-GX+Unbroken+Bonds+217&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sm10/217_hires.png"
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Charizard+X+ex+Phantasmal+Flames+125&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/me2/125_hires.png"
         }
       ],
       "apiIdentifier": "10034",
@@ -43809,28 +43809,28 @@
           "imageUrl": "https://images.pokemontcg.io/xy2/107_hires.png"
         },
         {
+          "name": "Mega Charizard Y ex",
+          "set": "Ascended Heroes",
+          "year": 2026,
+          "number": "294/217",
+          "rarity": "Mega Hyper Rare",
+          "category": "iconic",
+          "baseScore": 70.0,
+          "marketplace": "TCGplayer",
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Charizard+Y+ex+Ascended+Heroes+294&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.scrydex.com/pokemon/me2pt5-294/large"
+        },
+        {
           "name": "M Charizard-EX",
           "set": "Flashfire",
           "year": 2014,
-          "number": "108/106",
-          "rarity": "Rare Secret",
-          "category": "iconic",
-          "baseScore": 85.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Charizard-EX+Flashfire+108&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/xy2/108_hires.png"
-        },
-        {
-          "name": "Reshiram & Charizard-GX",
-          "set": "Unbroken Bonds",
-          "year": 2019,
-          "number": "217/214",
-          "rarity": "Rare Rainbow",
+          "number": "13/106",
+          "rarity": "Rare Holo EX",
           "category": "collector",
-          "baseScore": 70.0,
+          "baseScore": 69.0,
           "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Reshiram+%26+Charizard-GX+Unbroken+Bonds+217&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sm10/217_hires.png"
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Charizard-EX+Flashfire+13&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/xy2/13_hires.png"
         }
       ],
       "apiIdentifier": "10035",
@@ -44062,88 +44062,14 @@
     {
       "speciesNumber": 150,
       "name": "Mewtwo Mega X",
-      "featuredCards": [
-        {
-          "name": "M Mewtwo-EX",
-          "set": "BREAKthrough",
-          "year": 2015,
-          "number": "63/162",
-          "rarity": "Rare Holo EX",
-          "category": "historical",
-          "baseScore": 69.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Mewtwo-EX+BREAKthrough+63&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/xy8/63_hires.png"
-        },
-        {
-          "name": "M Mewtwo-EX",
-          "set": "BREAKthrough",
-          "year": 2015,
-          "number": "64/162",
-          "rarity": "Rare Holo EX",
-          "category": "iconic",
-          "baseScore": 69.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Mewtwo-EX+BREAKthrough+64&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/xy8/64_hires.png"
-        },
-        {
-          "name": "M Mewtwo-EX",
-          "set": "BREAKthrough",
-          "year": 2015,
-          "number": "159/162",
-          "rarity": "Rare Ultra",
-          "category": "collector",
-          "baseScore": 65.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Mewtwo-EX+BREAKthrough+159&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/xy8/159_hires.png"
-        }
-      ],
+      "featuredCards": [],
       "apiIdentifier": "10043",
       "formType": "mega"
     },
     {
       "speciesNumber": 150,
       "name": "Mewtwo Mega Y",
-      "featuredCards": [
-        {
-          "name": "M Mewtwo-EX",
-          "set": "BREAKthrough",
-          "year": 2015,
-          "number": "63/162",
-          "rarity": "Rare Holo EX",
-          "category": "historical",
-          "baseScore": 69.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Mewtwo-EX+BREAKthrough+63&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/xy8/63_hires.png"
-        },
-        {
-          "name": "M Mewtwo-EX",
-          "set": "BREAKthrough",
-          "year": 2015,
-          "number": "64/162",
-          "rarity": "Rare Holo EX",
-          "category": "iconic",
-          "baseScore": 69.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Mewtwo-EX+BREAKthrough+64&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/xy8/64_hires.png"
-        },
-        {
-          "name": "M Mewtwo-EX",
-          "set": "BREAKthrough",
-          "year": 2015,
-          "number": "159/162",
-          "rarity": "Rare Ultra",
-          "category": "collector",
-          "baseScore": 65.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=M+Mewtwo-EX+BREAKthrough+159&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/xy8/159_hires.png"
-        }
-      ],
+      "featuredCards": [],
       "apiIdentifier": "10044",
       "formType": "mega"
     },
@@ -44795,44 +44721,7 @@
     {
       "speciesNumber": 302,
       "name": "Sableye Mega",
-      "featuredCards": [
-        {
-          "name": "Mega Sableye & Tyranitar-GX",
-          "set": "Unified Minds",
-          "year": 2019,
-          "number": "245/236",
-          "rarity": "Rare Rainbow",
-          "category": "historical",
-          "baseScore": 85.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Sableye+%26+Tyranitar-GX+Unified+Minds+245&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sm11/245_hires.png"
-        },
-        {
-          "name": "Mega Sableye & Tyranitar-GX",
-          "set": "Unified Minds",
-          "year": 2019,
-          "number": "126/236",
-          "rarity": "Rare Holo GX",
-          "category": "iconic",
-          "baseScore": 69.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Sableye+%26+Tyranitar-GX+Unified+Minds+126&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sm11/126_hires.png"
-        },
-        {
-          "name": "Mega Sableye & Tyranitar-GX",
-          "set": "Unified Minds",
-          "year": 2019,
-          "number": "226/236",
-          "rarity": "Rare Ultra",
-          "category": "collector",
-          "baseScore": 65.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Sableye+%26+Tyranitar-GX+Unified+Minds+226&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sm11/226_hires.png"
-        }
-      ],
+      "featuredCards": [],
       "apiIdentifier": "10066",
       "formType": "mega"
     },
@@ -45422,25 +45311,13 @@
       "name": "Lopunny Mega",
       "featuredCards": [
         {
-          "name": "Mega Lopunny & Jigglypuff-GX",
-          "set": "Cosmic Eclipse",
-          "year": 2019,
-          "number": "261/236",
-          "rarity": "Rare Rainbow",
-          "category": "historical",
-          "baseScore": 85.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Lopunny+%26+Jigglypuff-GX+Cosmic+Eclipse+261&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sm12/261_hires.png"
-        },
-        {
           "name": "Mega Lopunny ex",
           "set": "Phantasmal Flames",
           "year": 2025,
           "number": "115/94",
           "rarity": "Ultra Rare",
-          "category": "iconic",
-          "baseScore": 70.0,
+          "category": "historical",
+          "baseScore": 85.0,
           "marketplace": "TCGplayer",
           "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Lopunny+ex+Phantasmal+Flames+115&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
           "imageUrl": "https://images.pokemontcg.io/me2/115_hires.png"
@@ -45451,11 +45328,23 @@
           "year": 2025,
           "number": "128/94",
           "rarity": "Special Illustration Rare",
-          "category": "collector",
-          "baseScore": 70.0,
+          "category": "iconic",
+          "baseScore": 85.0,
           "marketplace": "TCGplayer",
           "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Lopunny+ex+Phantasmal+Flames+128&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
           "imageUrl": "https://images.pokemontcg.io/me2/128_hires.png"
+        },
+        {
+          "name": "Mega Lopunny ex",
+          "set": "Phantasmal Flames",
+          "year": 2025,
+          "number": "84/94",
+          "rarity": "Double Rare",
+          "category": "collector",
+          "baseScore": 65.0,
+          "marketplace": "TCGplayer",
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Mega+Lopunny+ex+Phantasmal+Flames+84&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/me2/84_hires.png"
         }
       ],
       "apiIdentifier": "10088",
@@ -49764,7 +49653,7 @@
           "number": "202/167",
           "rarity": "Ultra Rare",
           "category": "historical",
-          "baseScore": 80.05,
+          "baseScore": 85.0,
           "marketplace": "TCGplayer",
           "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Bloodmoon+Ursaluna+ex+Twilight+Masquerade+202&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
           "imageUrl": "https://images.pokemontcg.io/sv6/202_hires.png"
@@ -49776,7 +49665,7 @@
           "number": "216/167",
           "rarity": "Special Illustration Rare",
           "category": "iconic",
-          "baseScore": 80.05,
+          "baseScore": 85.0,
           "marketplace": "TCGplayer",
           "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Bloodmoon+Ursaluna+ex+Twilight+Masquerade+216&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
           "imageUrl": "https://images.pokemontcg.io/sv6/216_hires.png"
@@ -49788,7 +49677,7 @@
           "number": "168/131",
           "rarity": "Special Illustration Rare",
           "category": "collector",
-          "baseScore": 70.0,
+          "baseScore": 80.05,
           "marketplace": "TCGplayer",
           "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Bloodmoon+Ursaluna+ex+Prismatic+Evolutions+168&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
           "imageUrl": "https://images.pokemontcg.io/sv8pt5/168_hires.png"
@@ -49803,39 +49692,39 @@
       "featuredCards": [
         {
           "name": "Wellspring Mask Ogerpon ex",
-          "set": "Prismatic Evolutions",
-          "year": 2025,
-          "number": "152/131",
-          "rarity": "Special Illustration Rare",
+          "set": "Twilight Masquerade",
+          "year": 2024,
+          "number": "194/167",
+          "rarity": "Ultra Rare",
           "category": "historical",
           "baseScore": 85.0,
           "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Wellspring+Mask+Ogerpon+ex+Prismatic+Evolutions+152&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv8pt5/152_hires.png"
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Wellspring+Mask+Ogerpon+ex+Twilight+Masquerade+194&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv6/194_hires.png"
+        },
+        {
+          "name": "Wellspring Mask Ogerpon ex",
+          "set": "Twilight Masquerade",
+          "year": 2024,
+          "number": "213/167",
+          "rarity": "Special Illustration Rare",
+          "category": "iconic",
+          "baseScore": 85.0,
+          "marketplace": "TCGplayer",
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Wellspring+Mask+Ogerpon+ex+Twilight+Masquerade+213&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv6/213_hires.png"
         },
         {
           "name": "Wellspring Mask Ogerpon ex",
           "set": "Prismatic Evolutions",
           "year": 2025,
-          "number": "27/131",
-          "rarity": "Double Rare",
-          "category": "iconic",
-          "baseScore": 65.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Wellspring+Mask+Ogerpon+ex+Prismatic+Evolutions+27&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv8pt5/27_hires.png"
-        },
-        {
-          "name": "Wellspring Mask Ogerpon",
-          "set": "Destined Rivals",
-          "year": 2025,
-          "number": "67/182",
-          "rarity": "Uncommon",
+          "number": "152/131",
+          "rarity": "Special Illustration Rare",
           "category": "collector",
-          "baseScore": 20.0,
+          "baseScore": 80.05,
           "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Wellspring+Mask+Ogerpon+Destined+Rivals+67&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv10/67_hires.png"
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Wellspring+Mask+Ogerpon+ex+Prismatic+Evolutions+152&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv8pt5/152_hires.png"
         }
       ],
       "apiIdentifier": "10273",
@@ -49847,39 +49736,39 @@
       "featuredCards": [
         {
           "name": "Hearthflame Mask Ogerpon ex",
-          "set": "Prismatic Evolutions",
-          "year": 2025,
-          "number": "148/131",
-          "rarity": "Special Illustration Rare",
+          "set": "Twilight Masquerade",
+          "year": 2024,
+          "number": "192/167",
+          "rarity": "Ultra Rare",
           "category": "historical",
           "baseScore": 85.0,
           "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Hearthflame+Mask+Ogerpon+ex+Prismatic+Evolutions+148&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv8pt5/148_hires.png"
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Hearthflame+Mask+Ogerpon+ex+Twilight+Masquerade+192&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv6/192_hires.png"
+        },
+        {
+          "name": "Hearthflame Mask Ogerpon ex",
+          "set": "Twilight Masquerade",
+          "year": 2024,
+          "number": "212/167",
+          "rarity": "Special Illustration Rare",
+          "category": "iconic",
+          "baseScore": 85.0,
+          "marketplace": "TCGplayer",
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Hearthflame+Mask+Ogerpon+ex+Twilight+Masquerade+212&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv6/212_hires.png"
         },
         {
           "name": "Hearthflame Mask Ogerpon ex",
           "set": "Prismatic Evolutions",
           "year": 2025,
-          "number": "17/131",
-          "rarity": "Double Rare",
-          "category": "iconic",
-          "baseScore": 65.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Hearthflame+Mask+Ogerpon+ex+Prismatic+Evolutions+17&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv8pt5/17_hires.png"
-        },
-        {
-          "name": "Hearthflame Mask Ogerpon",
-          "set": "Destined Rivals",
-          "year": 2025,
-          "number": "44/182",
-          "rarity": "Uncommon",
+          "number": "148/131",
+          "rarity": "Special Illustration Rare",
           "category": "collector",
-          "baseScore": 20.0,
+          "baseScore": 80.05,
           "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Hearthflame+Mask+Ogerpon+Destined+Rivals+44&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv10/44_hires.png"
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Hearthflame+Mask+Ogerpon+ex+Prismatic+Evolutions+148&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv8pt5/148_hires.png"
         }
       ],
       "apiIdentifier": "10274",
@@ -49891,39 +49780,39 @@
       "featuredCards": [
         {
           "name": "Cornerstone Mask Ogerpon ex",
-          "set": "Prismatic Evolutions",
-          "year": 2025,
-          "number": "160/131",
-          "rarity": "Special Illustration Rare",
+          "set": "Twilight Masquerade",
+          "year": 2024,
+          "number": "199/167",
+          "rarity": "Ultra Rare",
           "category": "historical",
           "baseScore": 85.0,
           "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Cornerstone+Mask+Ogerpon+ex+Prismatic+Evolutions+160&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv8pt5/160_hires.png"
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Cornerstone+Mask+Ogerpon+ex+Twilight+Masquerade+199&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv6/199_hires.png"
+        },
+        {
+          "name": "Cornerstone Mask Ogerpon ex",
+          "set": "Twilight Masquerade",
+          "year": 2024,
+          "number": "215/167",
+          "rarity": "Special Illustration Rare",
+          "category": "iconic",
+          "baseScore": 85.0,
+          "marketplace": "TCGplayer",
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Cornerstone+Mask+Ogerpon+ex+Twilight+Masquerade+215&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv6/215_hires.png"
         },
         {
           "name": "Cornerstone Mask Ogerpon ex",
           "set": "Prismatic Evolutions",
           "year": 2025,
-          "number": "58/131",
-          "rarity": "Double Rare",
-          "category": "iconic",
-          "baseScore": 65.0,
-          "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Cornerstone+Mask+Ogerpon+ex+Prismatic+Evolutions+58&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv8pt5/58_hires.png"
-        },
-        {
-          "name": "Cornerstone Mask Ogerpon",
-          "set": "Destined Rivals",
-          "year": 2025,
-          "number": "111/182",
-          "rarity": "Uncommon",
+          "number": "160/131",
+          "rarity": "Special Illustration Rare",
           "category": "collector",
-          "baseScore": 20.0,
+          "baseScore": 80.05,
           "marketplace": "TCGplayer",
-          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Cornerstone+Mask+Ogerpon+Destined+Rivals+111&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
-          "imageUrl": "https://images.pokemontcg.io/sv10/111_hires.png"
+          "marketUrl": "https://www.tcgplayer.com/search/pokemon/product?productLineName=pokemon&q=Cornerstone+Mask+Ogerpon+ex+Prismatic+Evolutions+160&view=grid&ProductTypeName=Cards&Condition=Near+Mint&sort=price-asc",
+          "imageUrl": "https://images.pokemontcg.io/sv8pt5/160_hires.png"
         }
       ],
       "apiIdentifier": "10275",
