@@ -29,6 +29,22 @@ MID = ("rare", "holo", "radiant", "amazing")
 MECHANICS = (" ex", " gx", " vmax", " vstar", " lv.x", "break", "prime", "legend", "mega", " m ")
 REGIONAL = {"alola": "Alolan", "galar": "Galarian", "hisui": "Hisuian", "paldea": "Paldean"}
 
+# As cartas antigas de Mega Charizard X/Y compartilham o mesmo nome impresso
+# ("M Charizard-EX"). Nesses casos, coleção + número são necessários para
+# separar corretamente as duas formas.
+LEGACY_MEGA_CHARIZARD = {
+    "charizard-mega-x": {
+        ("flashfire", "69"),
+        ("flashfire", "108"),
+    },
+    "charizard-mega-y": {
+        ("flashfire", "13"),
+        ("flashfire", "107"),
+        ("evolutions", "13"),
+        ("evolutions", "101"),
+    },
+}
+
 
 def fetch_json(url, retries=10):
     last = None
@@ -286,14 +302,52 @@ def form_targets(base_slug, form_slug):
     names = []
     if not parts: return []
     if parts[0] in REGIONAL: names.append(f"{REGIONAL[parts[0]]} {base}")
-    if "mega" in parts: names += [f"M {base}", f"Mega {base}"]
     if "gmax" in parts: names += [f"{base} VMAX", f"{base} Gigantamax"]
     label = " ".join(p.capitalize() for p in parts)
     names += [f"{base} {label}", f"{label} {base}"]
     return [norm(x) for x in names]
 
 
+def card_set_number(card):
+    set_name = norm((card.get("set") or {}).get("name") or "")
+    number = str(card.get("number") or "").strip().lower()
+    return set_name, number
+
+
+def is_mega_card_for_form(card, base_slug, form_slug):
+    card_name = norm(card.get("name") or "")
+    base_name = norm(display_name(base_slug))
+
+    # Mecânicas que não representam uma Mega Evolução nunca entram nesta forma.
+    if any(token in f" {card_name} " for token in (" gx ", " vmax ", " vstar ", " v ")):
+        return False
+    if "tag team" in card_name:
+        return False
+
+    # Formato moderno: o nome traz explicitamente Mega + variante, por exemplo
+    # "Mega Charizard X ex" e "Mega Charizard Y ex".
+    if form_slug.endswith("-mega-x"):
+        if card_name == f"mega {base_name} x ex":
+            return True
+    elif form_slug.endswith("-mega-y"):
+        if card_name == f"mega {base_name} y ex":
+            return True
+    else:
+        if card_name in {f"m {base_name} ex", f"mega {base_name} ex"}:
+            return True
+
+    # Formato XY antigo: Mega Charizard X e Y tinham o mesmo nome
+    # "M Charizard-EX". A separação é feita por coleção + número.
+    if form_slug in LEGACY_MEGA_CHARIZARD and card_name == "m charizard ex":
+        return card_set_number(card) in LEGACY_MEGA_CHARIZARD[form_slug]
+
+    return False
+
+
 def cards_for_form(cards, base_slug, form_slug):
+    if "-mega" in form_slug:
+        return [c for c in cards if is_mega_card_for_form(c, base_slug, form_slug)]
+
     targets = form_targets(base_slug, form_slug)
     return [c for c in cards if any(t and (norm(c.get("name") or "") == t or t in norm(c.get("name") or "")) for t in targets)]
 
