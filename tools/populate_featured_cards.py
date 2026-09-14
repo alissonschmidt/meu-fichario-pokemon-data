@@ -15,6 +15,8 @@ POKE_SPECIES = "https://pokeapi.co/api/v2/pokemon-species?limit=1025"
 POKE_ALL = "https://pokeapi.co/api/v2/pokemon?limit=5000"
 USER_AGENT = "PokeBinder-FeaturedCatalog/2.0"
 PAGE_SIZE = 200
+MIN_PAGE_SIZE = 25
+TCG_PAGE_RETRIES = 3
 
 CLASSIC_SETS = {
     "base set", "jungle", "fossil", "team rocket", "gym heroes", "gym challenge",
@@ -237,19 +239,56 @@ def make_entry(dex, identity, cards, api_identifier=None, form_type=None):
     return entry
 
 
-def all_cards():
-    cards, page = [], 1
+def fetch_card_window(start, page_size, wanted):
     fields = "id,name,subtypes,set,number,artist,rarity,nationalPokedexNumbers,images"
-    while True:
-        payload = fetch_json(TCG_API + "?" + urlencode({"page": page, "pageSize": PAGE_SIZE, "select": fields}))
+    page = start // page_size + 1
+    url = TCG_API + "?" + urlencode({"page": page, "pageSize": page_size, "select": fields})
+    try:
+        payload = fetch_json(url, retries=TCG_PAGE_RETRIES)
         batch = payload.get("data") or []
-        if not batch: break
+        total = int(payload.get("totalCount") or 0)
+        if len(batch) < wanted and (not total or start + len(batch) < total):
+            raise RuntimeError(f"Página incompleta: esperado {wanted}, recebido {len(batch)}")
+        return batch[:wanted], total
+    except Exception as exc:
+        if page_size <= MIN_PAGE_SIZE:
+            raise
+        smaller = page_size // 2
+        print(
+            f"Falha na janela TCG {start + 1}-{start + wanted} com pageSize={page_size}: {exc}. "
+            f"Tentando novamente com pageSize={smaller}."
+        )
+        left_wanted = min(wanted, smaller)
+        left, left_total = fetch_card_window(start, smaller, left_wanted)
+        right_wanted = max(0, wanted - smaller)
+        if right_wanted <= 0:
+            return left, left_total
+        time.sleep(0.5)
+        right, right_total = fetch_card_window(start + smaller, smaller, right_wanted)
+        return left + right, left_total or right_total
+
+
+def all_cards():
+    cards = []
+    offset = 0
+    total = None
+    while total is None or offset < total:
+        wanted = PAGE_SIZE if total is None else min(PAGE_SIZE, total - offset)
+        batch, observed_total = fetch_card_window(offset, PAGE_SIZE, wanted)
+        if total is None:
+            total = observed_total or len(batch)
+        elif observed_total and observed_total != total:
+            total = observed_total
+        if not batch:
+            break
         cards.extend(batch)
-        total = int(payload.get("totalCount") or len(cards))
+        offset += len(batch)
         print(f"Cartas TCG carregadas: {len(cards)}/{total}")
-        if len(cards) >= total: break
-        page += 1
+        if len(batch) < wanted:
+            break
         time.sleep(2.1)
+    if total and len(cards) < total:
+        raise RuntimeError(f"Coleta TCG incompleta: {len(cards)}/{total}")
     return cards
 
 
