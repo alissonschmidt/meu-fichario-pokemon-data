@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - "tools/populate_featured_cards.py"
+      - "tools/populate_forms_from_dataset.py"
       - ".github/workflows/populate-featured-cards.yml"
   workflow_dispatch:
 
@@ -88,10 +89,14 @@ jobs:
         if: steps.base_status.outputs.complete == 'true'
         run: echo "Base 1025 já está completa; pulando reprocessamento e seguindo para formas."
 
+      - name: Clone Pokemon TCG dataset
+        run: git clone --depth 1 https://github.com/PokemonTCG/pokemon-tcg-data.git /tmp/pokemon-tcg-data
+
       - name: Populate Mega, Shiny and other forms
         env:
           PYTHONUNBUFFERED: "1"
-        run: python tools/populate_featured_cards.py --phase forms
+          POKEMON_TCG_DATA_DIR: "/tmp/pokemon-tcg-data"
+        run: python tools/populate_forms_from_dataset.py
 
       - name: Validate forms catalog
         run: |
