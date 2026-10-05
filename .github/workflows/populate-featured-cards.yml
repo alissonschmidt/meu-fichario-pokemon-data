@@ -98,17 +98,41 @@ jobs:
           POKEMON_TCG_DATA_DIR: "/tmp/pokemon-tcg-data"
         run: python tools/populate_forms_from_dataset.py
 
-      - name: Validate forms catalog
+      - name: Validate complete catalog
         run: |
           python - <<'PY'
           import json
           data=json.load(open('featured_cards.json',encoding='utf-8'))
-          base=[e for e in data['pokemon'] if 'apiIdentifier' not in e]
-          forms=[e for e in data['pokemon'] if 'apiIdentifier' in e]
-          assert len(base)==1025
+          entries=data['pokemon']
+          base=[e for e in entries if 'apiIdentifier' not in e]
+          forms=[e for e in entries if 'apiIdentifier' in e]
+
+          assert len(base)==1025, f'Esperado 1025 base, recebido {len(base)}'
           assert {e.get('speciesNumber') for e in base} == set(range(1,1026))
           assert data.get('stats',{}).get('phase')=='forms-complete'
-          print('Base:',len(base),'Formas:',len(forms))
+
+          empty=[e for e in entries if not e.get('featuredCards')]
+          assert not empty, f'{len(empty)} entradas sem cartas em destaque: {empty[:10]}'
+
+          invalid=[e for e in entries if not 1 <= len(e.get('featuredCards',[])) <= 3]
+          assert not invalid, f'Entradas fora do limite de 1 a 3 cartas: {invalid[:10]}'
+
+          identifiers={str(e['apiIdentifier']) for e in forms}
+          real_form_ids={i for i in identifiers if i.isdigit()}
+          expected_shiny={f'shiny:{i}' for i in map(str, range(1,1026))}
+          expected_shiny.update({f'shiny:{i}' for i in real_form_ids})
+          missing_shiny=sorted(expected_shiny-identifiers)
+          assert not missing_shiny, f'Faltam {len(missing_shiny)} formas Shiny: {missing_shiny[:20]}'
+
+          assert all(not i.startswith('shiny-') for i in identifiers), 'Identificador Shiny legado encontrado'
+
+          print(
+              'Catálogo validado:',
+              len(base), 'base,',
+              len(forms), 'formas,',
+              len(entries), 'entradas,',
+              '100% com cartas em destaque.'
+          )
           PY
 
       - name: Commit forms catalog
