@@ -411,6 +411,17 @@ def form_type(slug):
     return "other"
 
 
+def identity_cards(cards, identity):
+    """Fallback seguro quando o dataset não traz nationalPokedexNumbers."""
+    target = norm(identity)
+    if not target:
+        return []
+    return [
+        c for c in cards
+        if (lambda name: name == target or name.startswith(target + " "))(norm(c.get("name") or ""))
+    ]
+
+
 def forms_phase():
     if not CATALOG.exists(): raise SystemExit("Execute a fase base primeiro.")
     current = json.loads(CATALOG.read_text(encoding="utf-8"))
@@ -422,30 +433,100 @@ def forms_phase():
     names = species_names()
     by_slug = {slug: dex for dex, slug in names.items()}
     sorted_slugs = sorted(by_slug, key=len, reverse=True)
+
+    # Completa qualquer Pokémon-base que tenha ficado sem destaque porque o
+    # dataset não informou nationalPokedexNumbers. Mantém exatamente o mesmo
+    # ranking e seleção atual; muda apenas a forma de localizar candidatos.
+    refreshed_base = []
+    for entry in base_entries:
+        if entry.get("featuredCards"):
+            refreshed_base.append(entry)
+            continue
+        dex = int(entry["speciesNumber"])
+        candidates = grouped[dex] or identity_cards(cards, entry.get("name") or display_name(names[dex]))
+        rebuilt = make_entry(dex, entry.get("name") or display_name(names[dex]), candidates)
+        if candidates:
+            rebuilt["selectionFallback"] = "name-match"
+        refreshed_base.append(rebuilt)
+    base_entries = refreshed_base
+
     all_pokemon = fetch_json(POKE_ALL).get("results") or []
     forms = []
+    seen_ids = set()
 
     for item in all_pokemon:
         slug = item.get("name") or ""
         m = re.search(r"/(\d+)/?$", item.get("url") or "")
-        if not m: continue
+        if not m:
+            continue
         api_id = int(m.group(1))
-        if api_id <= 1025 and slug in by_slug: continue
-        base_slug = next((b for b in sorted_slugs if slug.startswith(b + "-")), None)
-        if not base_slug: continue
-        dex = by_slug[base_slug]
-        matched = cards_for_form(grouped[dex], base_slug, slug)
-        forms.append(make_entry(dex, display_name(slug), matched, api_id, form_type(slug)))
 
-    # Shiny é uma variação visual e não possui ID próprio na PokeAPI; usamos um identificador estável interno.
-    for dex in range(1, 1026):
-        matched = shiny_cards(grouped[dex])
-        if matched:
-            forms.append(make_entry(dex, f"Shiny {display_name(names[dex])}", matched, f"shiny-{dex}", "shiny"))
+        is_base = api_id <= 1025 and slug in by_slug
+        if is_base:
+            base_slug = slug
+        else:
+            base_slug = next((b for b in sorted_slugs if slug.startswith(b + "-")), None)
+        if not base_slug:
+            continue
+
+        dex = by_slug[base_slug]
+        base_identity = display_name(base_slug)
+        base_candidates = grouped[dex] or identity_cards(cards, base_identity)
+
+        # Forma normal: tenta primeiro cartas específicas da forma. Se o TCG
+        # nunca imprimiu aquela forma de modo distinguível, usa os destaques da
+        # espécie-base para que nenhuma tela fique sem cartas.
+        if not is_base:
+            specific = cards_for_form(grouped[dex], base_slug, slug)
+            chosen = specific or base_candidates
+            entry = make_entry(dex, display_name(slug), chosen, api_id, form_type(slug))
+            if not specific and chosen:
+                entry["selectionFallback"] = "base-species"
+            forms.append(entry)
+            seen_ids.add(str(api_id))
+
+        # O app usa exatamente "shiny:<apiId>" ao abrir a versão Shiny,
+        # inclusive para formas alternativas. Criamos uma entrada para cada
+        # Pokémon retornado pela PokeAPI, usando carta Shiny específica quando
+        # existir e fallback progressivo quando não existir.
+        if is_base:
+            normal_specific = base_candidates
+        else:
+            normal_specific = cards_for_form(grouped[dex], base_slug, slug)
+
+        shiny_specific = shiny_cards(normal_specific)
+        if not shiny_specific:
+            shiny_specific = shiny_cards(grouped[dex])
+        shiny_chosen = shiny_specific or normal_specific or base_candidates
+
+        shiny_id = f"shiny:{api_id}"
+        shiny_entry = make_entry(
+            dex,
+            f"Shiny {display_name(slug)}",
+            shiny_chosen,
+            shiny_id,
+            "shiny",
+        )
+        if not shiny_specific and shiny_chosen:
+            shiny_entry["selectionFallback"] = "form-or-base-species"
+        forms.append(shiny_entry)
+        seen_ids.add(shiny_id)
 
     entries = base_entries + forms
+
+    empty = [e for e in entries if not e.get("featuredCards")]
+    if empty:
+        sample = ", ".join(
+            f"#{e.get('speciesNumber')} {e.get('name')} ({e.get('apiIdentifier', 'base')})"
+            for e in empty[:20]
+        )
+        raise SystemExit(f"Catálogo incompleto: {len(empty)} entradas sem cartas em destaque. Exemplos: {sample}")
+
     write(entries, "forms-complete", len(cards))
-    print(f"Fase de formas concluída: {len(forms)} entradas adicionais.")
+    print(
+        f"Fase de formas concluída: {len(forms)} entradas adicionais; "
+        f"{len(entries)}/{len(entries)} entradas com cartas em destaque."
+    )
 
 
 def main():
